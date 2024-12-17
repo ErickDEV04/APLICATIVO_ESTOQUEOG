@@ -1,1 +1,171 @@
-
+/* Resetando margens e preenchimento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo do body */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: hidden; /* Previne rolagem horizontal */
+  }
+  
+  /* Barra superior fixa */
+  .barra-superior {
+    position: fixed; /* Fixa a barra no topo da página */
+    top: 0; /* Posiciona no topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Barra ocupa a largura toda */
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 -4px 6px rgba(0, 0, 0, 0.1); /* Efeito de relevo */
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+  }
+  
+  /* Barra inferior fixa */
+  .barra-inferior {
+    position: fixed; /* Fixa a barra no rodapé */
+    bottom: 0; /* Posiciona no rodapé */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Barra ocupa a largura toda */
+    background-color: #333; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1); /* Efeito de relevo */
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+  }
+  
+  /* Estilo do conteúdo */
+  .conteudo {
+    padding: 20px;
+    text-align: center;
+    flex: 1; /* Faz o conteúdo ocupar o espaço restante entre as barras */
+    margin-top: 80px; /* Dá espaçamento para a barra superior fixa */
+    margin-bottom: 60px; /* Dá espaçamento para a barra inferior fixa */
+  }
+  
+  /* Contêiner dos botões */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre as linhas */
+    align-items: center;
+  }
+  
+  /* Linha de botões */
+  .linha {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os botões na mesma linha */
+  }
+  
+  /* Estilo dos botões */
+  .botao {
+    width: 100px; /* Tamanho fixo dos botões */
+    height: 100px; /* Mesmo tamanho de altura e largura, para manter quadrados */
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda padrão */
+    border-radius: 12px; /* Bordas arredondadas */
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Efeito ao passar o mouse nos botões */
+  .botao:hover {
+    background-color: #45a049; /* Cor do fundo ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento do tamanho */
+  }
+  
+  /* Efeito ao pressionar o botão */
+  .botao:active {
+    transform: scale(0.95); /* Botão fica ligeiramente menor ao ser pressionado */
+  }
+  
+  /* ============================
+     Estilos Responsivos
+     ============================ */
+  
+  /* Tela pequena (smartphones) */
+  @media (max-width: 600px) {
+    .barra-superior {
+      font-size: 1.2rem;
+      padding: 8px 16px;
+    }
+  
+    .barra-inferior {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  
+    .conteudo {
+      font-size: 1rem;
+      padding: 15px;
+    }
+  
+    .botao {
+      width: 80px;
+      height: 80px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Tela média (tablets) */
+  @media (max-width: 1024px) {
+    .barra-superior {
+      font-size: 1.4rem;
+      padding: 12px 20px;
+    }
+  
+    .barra-inferior {
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+  
+    .conteudo {
+      font-size: 1.1rem;
+      padding: 18px;
+    }
+  
+    .botao {
+      width: 90px;
+      height: 90px;
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Tela grande (desktops e monitores grandes) */
+  @media (min-width: 1025px) {
+    .barra-superior {
+      font-size: 1.5rem;
+      padding: 20px 40px;
+    }
+  
+    .barra-inferior {
+      font-size: 1.2rem;
+      padding: 20px 40px;
+    }
+  
+    .conteudo {
+      font-size: 1.2rem;
+      padding: 30px;
+    }
+  
+    .botao {
+      width: 100px;
+      height: 100px;
+      font-size: 1.2rem;
+    }
+  }
