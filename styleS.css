@@ -1,0 +1,66 @@
+/* Estilos Globais */
+body {
+    background-color: #EFF5FB; /* Fundo do aplicativo */
+    color: #000000; /* Cor de texto preta para todo o conteúdo */
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #FF3630; /* Cor de fundo da Navbar */
+  }
+  
+  .navbar-brand,
+  .nav-link {
+    color: #ffffff !important; /* Texto da Navbar em branco */
+  }
+  
+  .nav-link.active {
+    color: #6FFFC1 !important; /* Links ativos na cor verde-água */
+  }
+  
+  /* Botões */
+  .btn-primary {
+    background-color: #FF3630; /* Cor de fundo dos botões */
+    border-color: #FF3630; /* Borda dos botões */
+  }
+  
+  .btn-primary:hover {
+    background-color: #e82f2b; /* Cor ao passar o mouse sobre o botão */
+    border-color: #e82f2b; /* Cor da borda ao passar o mouse */
+  }
+  
+  /* Cartões e Tabelas */
+  .card {
+    background-color: #FF8E4C; /* Fundo dos cartões */
+    border-radius: 10px;
+  }
+  
+  .table {
+    background-color: #FF8E4C; /* Fundo das tabelas */
+    border-radius: 10px;
+  }
+  
+  /* Títulos */
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000; /* Títulos com cor preta */
+  }
+  
+  /* Links e Itens Ativos */
+  a {
+    color: #6FFFC1; /* Cor dos links */
+  }
+  
+  a:hover {
+    color: #4cc6a2; /* Cor dos links ao passar o mouse */
+  }
+  
+  /* Input e Campos de Formulário */
+  input, select, textarea {
+    border-radius: 5px;
+  }
+  
+  /* Tabela (Textos nas Tabelas) */
+  .table th, .table td {
+    color: #000000; /* Cor de texto nas células da tabela */
+  }
+  
