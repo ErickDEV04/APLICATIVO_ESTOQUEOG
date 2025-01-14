@@ -33,10 +33,17 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    height: 100%; /* Garantir que todos os cards tenham a mesma altura */
 }
 
 .card:hover {
     transform: scale(1.05); /* Efeito de zoom quando o usuário passa o mouse */
+}
+
+/* Cards dentro do container flex */
+.row-cols-md-3 {
+    display: flex;
+    justify-content: space-between; /* Garante o espaçamento entre os cards */
 }
 
 /* Estilos para os Cards */
@@ -102,4 +109,11 @@ body {
 
 .bg-warning {
     background-color: #ffc107 !important;
+}
+
+/* Estilos para Visão Geral de Estoque */
+.card.mb-3 {
+    background-color: #ffffff; /* Cor de fundo do card */
+    color: #000000; /* Cor do texto */
+    border-radius: 10px; /* Borda arredondada */
 }
