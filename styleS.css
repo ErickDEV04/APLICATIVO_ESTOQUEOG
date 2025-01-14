@@ -2,65 +2,104 @@
 body {
     background-color: #EFF5FB; /* Fundo do aplicativo */
     color: #000000; /* Cor de texto preta para todo o conteúdo */
-  }
-  
-  /* Navbar */
-  .navbar {
+}
+
+/* Navbar */
+.navbar {
     background-color: #FF3630; /* Cor de fundo da Navbar */
-  }
-  
-  .navbar-brand,
-  .nav-link {
+}
+
+.navbar-brand,
+.nav-link {
     color: #ffffff !important; /* Texto da Navbar em branco */
-  }
-  
-  .nav-link.active {
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff; /* Cor do ícone do menu hambúrguer */
+}
+
+.navbar-nav .nav-item .nav-link.active {
     color: #6FFFC1 !important; /* Links ativos na cor verde-água */
-  }
-  
-  /* Botões */
-  .btn-primary {
-    background-color: #FF3630; /* Cor de fundo dos botões */
-    border-color: #FF3630; /* Borda dos botões */
-  }
-  
-  .btn-primary:hover {
-    background-color: #e82f2b; /* Cor ao passar o mouse sobre o botão */
-    border-color: #e82f2b; /* Cor da borda ao passar o mouse */
-  }
-  
-  /* Cartões e Tabelas */
-  .card {
-    background-color: #FF8E4C; /* Fundo dos cartões */
+}
+
+/* Barra de pesquisa */
+.form-control {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* Cards (Botões de Dashboard) */
+.card {
     border-radius: 10px;
-  }
-  
-  .table {
-    background-color: #FF8E4C; /* Fundo das tabelas */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Efeito de zoom quando o usuário passa o mouse */
+}
+
+/* Estilos para os Cards */
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.card-text {
+    color: #fff;
+}
+
+/* Cores para os diferentes tipos de card */
+.bg-danger {
+    background-color: #FF3630 !important; /* Para Cadastro de Produto */
+}
+
+.bg-success {
+    background-color: #6FFFC1 !important; /* Para Consultar Estoque */
+}
+
+.bg-warning {
+    background-color: #FF8E4C !important; /* Para Histórico de Movimentação */
+}
+
+.btn-light {
+    color: #FF3630; /* Cor do botão nos cards */
+    border: 2px solid #FF3630;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: #FF3630;
+    color: white;
+}
+
+/* Tabela */
+.table {
+    background-color: #ffffff;
     border-radius: 10px;
-  }
-  
-  /* Títulos */
-  h1, h2, h3, h4, h5, h6 {
-    color: #000000; /* Títulos com cor preta */
-  }
-  
-  /* Links e Itens Ativos */
-  a {
-    color: #6FFFC1; /* Cor dos links */
-  }
-  
-  a:hover {
-    color: #4cc6a2; /* Cor dos links ao passar o mouse */
-  }
-  
-  /* Input e Campos de Formulário */
-  input, select, textarea {
-    border-radius: 5px;
-  }
-  
-  /* Tabela (Textos nas Tabelas) */
-  .table th, .table td {
+}
+
+.table th, .table td {
     color: #000000; /* Cor de texto nas células da tabela */
-  }
-  
+}
+
+/* Badge de status dos itens */
+.badge {
+    font-size: 0.85rem;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+}
