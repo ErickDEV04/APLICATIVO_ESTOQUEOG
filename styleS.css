@@ -40,12 +40,6 @@ body {
     transform: scale(1.05); /* Efeito de zoom quando o usuário passa o mouse */
 }
 
-/* Cards dentro do container flex */
-.row-cols-md-3 {
-    display: flex;
-    justify-content: space-between; /* Garante o espaçamento entre os cards */
-}
-
 /* Estilos para os Cards */
 .card-body {
     padding: 20px;
@@ -61,17 +55,9 @@ body {
     color: #fff;
 }
 
-/* Cores para os diferentes tipos de card */
-.bg-danger {
-    background-color: #FF3630 !important; /* Para Cadastro de Produto */
-}
-
-.bg-success {
-    background-color: #6FFFC1 !important; /* Para Consultar Estoque */
-}
-
-.bg-warning {
-    background-color: #FF8E4C !important; /* Para Histórico de Movimentação */
+/* Cor para todos os cards */
+.card.text-white {
+    background-color: #FF3630 !important; /* Cor padrão para todos os cards */
 }
 
 .btn-light {
@@ -111,9 +97,8 @@ body {
     background-color: #ffc107 !important;
 }
 
-/* Estilos para Visão Geral de Estoque */
-.card.mb-3 {
-    background-color: #ffffff; /* Cor de fundo do card */
-    color: #000000; /* Cor do texto */
-    border-radius: 10px; /* Borda arredondada */
+/* Visão Geral do Estoque - Correção de Texto */
+.card .card-body h5,
+.card .card-body p {
+    color: #000000; /* Cor do texto preta para garantir contraste */
 }
