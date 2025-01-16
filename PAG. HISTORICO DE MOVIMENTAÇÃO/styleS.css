@@ -1,1 +1,79 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
 
+/* Cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Container principal */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Botões */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Cores personalizadas */
+.navbar {
+    background-color: #ff0000; /* Vermelho principal */
+}
+
+h3 {
+    color: #ff0000; /* Vermelho principal */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 0, 0, 0.1); /* Vermelho claro */
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: rgba(255, 0, 0, 0.05); /* Vermelho mais claro */
+}
