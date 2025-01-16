@@ -6,7 +6,6 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Cabeçalho */
 header {
     background-color: #333;
     color: #fff;
@@ -18,7 +17,6 @@ header h1 {
     margin: 0;
 }
 
-/* Container principal */
 .container {
     width: 80%;
     margin: 20px auto;
