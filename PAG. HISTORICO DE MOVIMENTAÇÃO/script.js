@@ -1,6 +1,3 @@
-// Script para funcionalidades da página Histórico de Movimentação
-
-// Busca dinâmica no histórico de movimentações
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.createElement('input');
     const table = document.querySelector('.table tbody');
