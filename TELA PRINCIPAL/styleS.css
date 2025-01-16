@@ -1,6 +1,7 @@
 /* Estilos Globais */
 body {
     background-color: #EFF5FB; /* Fundo do aplicativo */
+    background-color: #f7f7f7; /* Fallback para navegadores mais antigos */
     color: #000000; /* Cor de texto preta para todo o conteúdo */
 }
 
@@ -24,7 +25,7 @@ body {
 
 /* Barra de pesquisa */
 .form-control {
-    width: 100%;
+    width: auto; /* Ajuste para ocupar menos espaço */
     border-radius: 20px;
 }
 
@@ -33,7 +34,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    height: 100%; /* Garantir que todos os cards tenham a mesma altura */
+    background-color: #FF3630 !important; /* Mantendo a cor padrão dos cards */
 }
 
 .card:hover {
@@ -53,11 +54,6 @@ body {
 
 .card-text {
     color: #fff;
-}
-
-/* Cor para todos os cards */
-.card.text-white {
-    background-color: #FF3630 !important; /* Cor padrão para todos os cards */
 }
 
 .btn-light {
@@ -97,8 +93,23 @@ body {
     background-color: #ffc107 !important;
 }
 
-/* Visão Geral do Estoque - Correção de Texto */
-.card .card-body h5,
-.card .card-body p {
-    color: #000000; /* Cor do texto preta para garantir contraste */
+/* Estilos Específicos para Visão Geral de Estoque */
+#overview-card {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    width: 100%;
+    max-width: none; /* Remove restrições de largura */
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+/* Tornando "Visão Geral de Estoque" não responsivo */
+#overview-container {
+    display: flex;
+    flex-wrap: nowrap; /* Remove responsividade */
+    gap: 20px;
+}
+
+#overview-container .card {
+    flex: 1; /* Garante que ambos os cards fiquem lado a lado */
 }
