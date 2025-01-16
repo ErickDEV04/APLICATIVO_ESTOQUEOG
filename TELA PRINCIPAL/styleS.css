@@ -1,115 +1,229 @@
-/* Estilos Globais */
-body {
-    background-color: #EFF5FB; /* Fundo do aplicativo */
-    background-color: #f7f7f7; /* Fallback para navegadores mais antigos */
-    color: #000000; /* Cor de texto preta para todo o conteúdo */
-}
+/* Variáveis CSS */
+:root {
+    --primary-color: #FF3630; /* Cor primária (vermelho) */
+    --secondary-color: #6FFFC1; /* Cor secundária (verde-água) */
+    --background-color: #EFF5FB; /* Cor de fundo */
+    --text-color: #000000; /* Cor do texto */
+    --card-bg-color: #ffffff; /* Cor de fundo dos cards */
+    --card-hover-scale: 1.05; /* Efeito de zoom ao passar o mouse */
+    --border-radius: 10px; /* Raio de borda padrão */
+  }
+  
+  /* Estilos Globais */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+  }
 
-/* Navbar */
-.navbar {
-    background-color: #FF3630; /* Cor de fundo da Navbar */
-}
-
-.navbar-brand,
-.nav-link {
-    color: #ffffff !important; /* Texto da Navbar em branco */
-}
-
-.navbar-toggler-icon {
-    background-color: #ffffff; /* Cor do ícone do menu hambúrguer */
-}
-
-.navbar-nav .nav-item .nav-link.active {
-    color: #6FFFC1 !important; /* Links ativos na cor verde-água */
-}
-
-/* Barra de pesquisa */
-.form-control {
-    width: auto; /* Ajuste para ocupar menos espaço */
+/* Estilo específico para o Nome do Aplicativo */
+.app-name {
+    font-size: 1.5rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    color: #FF3630 !important; /* Cor preta para melhor contraste */
+    margin-left: 10px; /* Espaçamento entre o ícone e o nome */
+    flex-grow: 1; /* Faz o nome ocupar o espaço restante */
+    text-align: center; /* Centraliza o texto horizontalmente */
+  }
+  
+  /* Ajustes para telas menores */
+  @media (max-width: 768px) {
+    .app-name {
+      font-size: 1.2rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+  }
+  
+  /* Ajustes para telas menores */
+  @media (max-width: 768px) {
+    .navbar-brand {
+      font-size: 1.2rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: var(--primary-color);
+  }
+  
+  .navbar-brand,
+  .nav-link {
+    color: #ffffff !important;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #ffffff;
+  }
+  
+  .navbar-nav .nav-item .nav-link.active {
+    color: var(--secondary-color) !important;
+  }
+  
+  /* Barra de Pesquisa */
+  .form-control {
+    width: auto;
     border-radius: 20px;
-}
-
-/* Cards (Botões de Dashboard) */
-.card {
-    border-radius: 10px;
+    border: 1px solid #ced4da;
+  }
+  
+  /* Cards */
+  .card {
+    border-radius: var(--border-radius);
     cursor: pointer;
-    transition: transform 0.3s ease;
-    background-color: #FF3630 !important; /* Mantendo a cor padrão dos cards */
-}
-
-.card:hover {
-    transform: scale(1.05); /* Efeito de zoom quando o usuário passa o mouse */
-}
-
-/* Estilos para os Cards */
-.card-body {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--primary-color) !important;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: scale(var(--card-hover-scale));
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-body {
     padding: 20px;
-}
-
-.card-title {
+  }
+  
+  .card-title {
     font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
-}
-
-.card-text {
+  }
+  
+  .card-text {
     color: #fff;
-}
-
-.btn-light {
-    color: #FF3630; /* Cor do botão nos cards */
-    border: 2px solid #FF3630;
+  }
+  
+  .btn-light {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     background-color: transparent;
-    transition: background-color 0.3s ease;
-}
-
-.btn-light:hover {
-    background-color: #FF3630;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-light:hover {
+    background-color: var(--primary-color);
     color: white;
-}
-
-/* Tabela */
-.table {
-    background-color: #ffffff;
-    border-radius: 10px;
-}
-
-.table th, .table td {
-    color: #000000; /* Cor de texto nas células da tabela */
-}
-
-/* Badge de status dos itens */
-.badge {
+  }
+  
+  /* Tabela */
+  .table {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th,
+  .table td {
+    color: var(--text-color);
+  }
+  
+  /* Badge de Status */
+  .badge {
     font-size: 0.85rem;
     padding: 8px;
     border-radius: 12px;
-}
-
-.bg-success {
+  }
+  
+  .bg-success {
     background-color: #28a745 !important;
-}
-
-.bg-warning {
+  }
+  
+  .bg-warning {
     background-color: #ffc107 !important;
-}
-
-/* Estilos Específicos para Visão Geral de Estoque */
-#overview-card {
-    background-color: #ffffff !important;
-    color: #000000 !important;
+  }
+  
+  /* Visão Geral de Estoque */
+  #overview-card {
+    background-color: var(--card-bg-color) !important;
+    color: var(--text-color) !important;
     width: 100%;
-    max-width: none; /* Remove restrições de largura */
+    max-width: none;
     flex-grow: 1;
     flex-shrink: 0;
-}
-
-/* Tornando "Visão Geral de Estoque" não responsivo */
-#overview-container {
+  }
+  
+  #overview-container {
     display: flex;
-    flex-wrap: nowrap; /* Remove responsividade */
+    flex-wrap: nowrap;
     gap: 20px;
-}
-
-#overview-container .card {
-    flex: 1; /* Garante que ambos os cards fiquem lado a lado */
-}
+  }
+  
+  #overview-container .card {
+    flex: 1;
+  }
+  
+  /* Alternador de Tema */
+  #theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  /* Sugestões de Busca */
+  .search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+  }
+  
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Menu de Perfil */
+  .profile-menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+  }
+  
+  .profile-menu-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .profile-menu-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .form-control {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    #overview-container {
+      flex-wrap: wrap;
+    }
+  
+    #overview-container .card {
+      flex: 1 1 100%;
+      margin-bottom: 20px;
+    }
+  }

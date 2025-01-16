@@ -6,25 +6,46 @@ const body = document.body;
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     body.classList.add(savedTheme);
+    if (savedTheme === 'dark-theme') {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ícone de sol para tema escuro
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ícone de lua para tema claro
+    }
 }
 
 themeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-theme');
     const currentTheme = body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
     localStorage.setItem('theme', currentTheme);
+
+    // Alternar ícone
+    if (currentTheme === 'dark-theme') {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
 });
 
 // Notificações
 const notificationBell = document.getElementById('notification-bell');
+const notificationBadge = document.querySelector('.notification-badge');
+
+const notifications = [
+    "Produto X está com estoque baixo.",
+    "Novo produto cadastrado: Produto Y.",
+    "Movimentação realizada: Saída de 10 unidades do Produto Z."
+];
+
 notificationBell.addEventListener('click', () => {
-    alert('Você tem notificações pendentes sobre o estoque!');
+    alert(`Você tem ${notifications.length} notificações:\n\n${notifications.join('\n')}`);
+    notificationBadge.textContent = '0'; // Limpa notificações após visualizar
 });
 
 // Barra de Pesquisa - Filtro em tempo real
 const searchInput = document.querySelector('.form-control');
 const tableRows = document.querySelectorAll('.table tbody tr');
 
-searchInput.addEventListener('input', function() {
+searchInput.addEventListener('input', function () {
     const searchQuery = this.value.toLowerCase();
     tableRows.forEach(row => {
         const cells = row.getElementsByTagName('td');
@@ -35,21 +56,46 @@ searchInput.addEventListener('input', function() {
 
 // Sugestões de Busca
 const suggestions = ['Produto 1', 'Produto 2', 'Produto 3']; // Exemplo estático de sugestões
-searchInput.addEventListener('input', function() {
+const suggestionsDropdown = document.createElement('div');
+suggestionsDropdown.className = 'search-suggestions';
+document.querySelector('.d-flex').appendChild(suggestionsDropdown);
+
+searchInput.addEventListener('input', function () {
     const searchQuery = this.value.toLowerCase();
     const filteredSuggestions = suggestions.filter(suggestion => suggestion.toLowerCase().includes(searchQuery));
-    console.log('Sugestões:', filteredSuggestions); // Substitua por uma exibição real de sugestões
+
+    if (filteredSuggestions.length > 0 && searchQuery !== '') {
+        suggestionsDropdown.innerHTML = filteredSuggestions.map(suggestion => `<div class="suggestion-item">${suggestion}</div>`).join('');
+        suggestionsDropdown.style.display = 'block';
+    } else {
+        suggestionsDropdown.style.display = 'none';
+    }
 });
 
-// Dropdown Menu
-const dropdownToggle = document.getElementById('dropdownMenuButton');
-dropdownToggle.addEventListener('click', () => {
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    dropdownMenu.classList.toggle('show');
+// Fechar sugestões ao clicar fora
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.form-control') && !event.target.closest('.search-suggestions')) {
+        suggestionsDropdown.style.display = 'none';
+    }
 });
 
 // Avatar Menu
 const avatar = document.getElementById('avatar');
-avatar.addEventListener('click', () => {
-    alert('Opções de perfil: Configurações, Perfil, Logout');
+const profileMenu = document.createElement('div');
+profileMenu.className = 'profile-menu';
+profileMenu.innerHTML = `
+    <div class="profile-menu-item">Perfil</div>
+    <div class="profile-menu-item">Configurações</div>
+    <div class="profile-menu-item">Logout</div>
+`;
+document.body.appendChild(profileMenu);
+
+avatar.addEventListener('click', (event) => {
+    event.stopPropagation(); // Evita que o evento de clique no documento feche o menu imediatamente
+    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
+});
+
+// Fechar menu de perfil ao clicar fora
+document.addEventListener('click', () => {
+    profileMenu.style.display = 'none';
 });
