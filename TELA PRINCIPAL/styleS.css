@@ -15,47 +15,55 @@
     color: var(--text-color);
     font-family: Arial, sans-serif;
   }
-
-/* Estilo específico para o Nome do Aplicativo */
-.app-name {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
-    color: #FF3630 !important; /* Cor preta para melhor contraste */
-    margin-left: 10px; /* Espaçamento entre o ícone e o nome */
-    flex-grow: 1; /* Faz o nome ocupar o espaço restante */
-    text-align: center; /* Centraliza o texto horizontalmente */
-  }
   
-  /* Ajustes para telas menores */
-  @media (max-width: 768px) {
-    .app-name {
-      font-size: 1.2rem; /* Reduz o tamanho da fonte em telas menores */
-    }
-  }
-  
-  /* Ajustes para telas menores */
-  @media (max-width: 768px) {
-    .navbar-brand {
-      font-size: 1.2rem; /* Reduz o tamanho da fonte em telas menores */
-    }
-  }
-  
-  /* Navbar */
+  /* Navbar Escura */
   .navbar {
-    background-color: var(--primary-color);
+    background-color: #FF3630 !important; /* Cor de fundo escura */
+    border-bottom: 1px solid #4b545c; /* Borda inferior sutil */
   }
   
+  /* Texto e Ícones na Navbar */
   .navbar-brand,
-  .nav-link {
-    color: #ffffff !important;
+  .nav-link,
+  .navbar-toggler-icon,
+  .btn-outline-primary,
+  .btn-light {
+    color: #ffffff !important; /* Texto e ícones em branco */
   }
   
-  .navbar-toggler-icon {
-    background-color: #ffffff;
+  /* Botão de Configurações */
+  .btn-outline-primary {
+    border-color: #ffffff; /* Borda branca */
+    color: #ffffff !important; /* Ícone branco */
   }
   
-  .navbar-nav .nav-item .nav-link.active {
-    color: var(--secondary-color) !important;
+  .btn-outline-primary:hover {
+    background-color: #ffffff; /* Fundo branco ao passar o mouse */
+    color: #343a40 !important; /* Ícone escuro ao passar o mouse */
+  }
+  
+  /* Botão de Notificações e Alternador de Tema */
+  .btn-light {
+    background-color: transparent; /* Fundo transparente */
+    border-color: transparent; /* Sem borda */
+  }
+  
+  .btn-light:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente ao passar o mouse */
+  }
+  
+  /* Dropdown do Avatar */
+  .dropdown-menu {
+    background-color: #343a40; /* Fundo escuro */
+    border: 1px solid #4b545c; /* Borda sutil */
+  }
+  
+  .dropdown-item {
+    color: #ffffff !important; /* Texto branco */
+  }
+  
+  .dropdown-item:hover {
+    background-color: #4b545c; /* Fundo mais claro ao passar o mouse */
   }
   
   /* Barra de Pesquisa */
@@ -204,6 +212,72 @@
   
   .profile-menu-item:hover {
     background-color: #f8f9fa;
+  }
+  
+/* Modo Escuro Light */
+body.dark-theme {
+    background-color: #2d2d2d; /* Fundo escuro suave */
+    color: #e0e0e0; /* Texto claro */
+  }
+  
+  .dark-theme .navbar {
+    background-color: #FF3630 !important; /* Navbar escura suave */
+    border-bottom: 1px solid #4a4a4a; /* Borda sutil */
+  }
+  
+  .dark-theme .card {
+    background-color: #FF3630 !important; /* Cards escuros suaves */
+    color: #e0e0e0; /* Texto claro nos cards */
+  }
+  
+  .dark-theme .table {
+    background-color: #FF3630; /* Tabela escura suave */
+    color: #e0e0e0; /* Texto claro na tabela */
+  }
+  
+  .dark-theme .table th,
+  .dark-theme .table td {
+    color: #e0e0e0; /* Texto claro nas células da tabela */
+    border-color: #4a4a4a; /* Cor das bordas da tabela */
+    background-color: #FF3630;
+  }
+  
+  .dark-theme .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #4a4a4a; /* Fundo alternado para linhas ímpares */
+    
+  }
+  
+  .dark-theme .dropdown-menu {
+    background-color: #3a3a3a; /* Dropdown escuro suave */
+    border: 1px solid #4a4a4a; /* Borda sutil */
+  }
+  
+  .dark-theme .dropdown-item {
+    color: #e0e0e0 !important; /* Texto claro nos itens do dropdown */
+  }
+  
+  .dark-theme .dropdown-item:hover {
+    background-color: #4a4a4a; /* Fundo mais claro ao passar o mouse */
+  }
+  
+  .dark-theme .btn-outline-primary {
+    border-color: #e0e0e0; /* Borda clara */
+    color: #e0e0e0 !important; /* Ícone claro */
+  }
+  
+  .dark-theme .btn-outline-primary:hover {
+    background-color: #e0e0e0; /* Fundo claro ao passar o mouse */
+    color: #3a3a3a !important; /* Ícone escuro ao passar o mouse */
+  }
+  
+  .dark-theme .btn-light {
+    background-color: transparent; /* Fundo transparente */
+    border-color: transparent; /* Sem borda */
+    color: #e0e0e0 !important; /* Ícone claro */
+  }
+  
+  .dark-theme .btn-light:hover {
+    background-color: rgba(224, 224, 224, 0.1); /* Fundo semi-transparente ao passar o mouse */
   }
   
   /* Responsividade */
