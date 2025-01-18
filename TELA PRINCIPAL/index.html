@@ -9,26 +9,26 @@
   <link rel="stylesheet" href="styleS.css">
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <!-- Logo e Nome do Aplicativo -->
+      <!-- Logo e Nome do Usuário -->
       <div class="d-flex align-items-center">
         <!-- Botão de Configurações -->
         <a href="configuracoes.html" class="btn btn-outline-primary me-3">
           <i class="fas fa-cog"></i> <!-- Ícone de engrenagem -->
         </a>
-  
-        <!-- Nome do Aplicativo -->
-        <span class="navbar-brand app-name mb-0 h1">EstoqueMaster</span>
+
+        <!-- Nome do Usuário -->
+        <span class="navbar-brand app-name mb-0 h1" id="username">Olá, Usuário</span>
       </div>
-  
+
       <!-- Barra de Pesquisa -->
       <form class="d-flex ms-auto w-auto">
         <input class="form-control me-2" type="search" placeholder="Buscar..." id="searchInput" aria-label="Search">
         <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
-  
+
       <!-- Ícones à Direita -->
       <div class="d-flex align-items-center ms-3">
         <!-- Sino de Notificações -->
@@ -38,12 +38,12 @@
             3
           </span>
         </button>
-  
+
         <!-- Alternador de Tema -->
         <button class="btn btn-light me-3" id="theme-toggle">
           <i class="fas fa-moon"></i>
         </button>
-  
+
         <!-- Avatar de Perfil -->
         <div class="dropdown">
           <button class="btn btn-light dropdown-toggle" type="button" id="avatar">
@@ -53,6 +53,7 @@
       </div>
     </div>
   </nav>
+
   <!-- Dashboard Section -->
   <div class="container mt-5">
     <div class="row">
