@@ -9,57 +9,50 @@
   <link rel="stylesheet" href="styleS.css">
 </head>
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <!-- Logo e Nome do Aplicativo -->
-    <div class="d-flex align-items-center">
-      <!-- Menu Dropdown -->
-      <div class="dropdown me-3">
-        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-bars"></i>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#">Configurações</a></li>
-          <li><a class="dropdown-item" href="#">Versão do Site</a></li>
-          <li><a class="dropdown-item" href="#">Precisa de Ajuda?</a></li>
-        </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Logo e Nome do Usuário -->
+      <div class="d-flex align-items-center">
+        <!-- Botão de Configurações -->
+        <a href="configuracoes.html" class="btn btn-outline-primary me-3">
+          <i class="fas fa-cog"></i> <!-- Ícone de engrenagem -->
+        </a>
+
+        <!-- Nome do Usuário -->
+        <span class="navbar-brand app-name mb-0 h1" id="username">Olá, Usuário</span>
       </div>
 
-      <!-- Nome do Aplicativo -->
-      <span class="navbar-brand app-name mb-0 h1">EstoqueMaster</span>
-    </div>
+      <!-- Barra de Pesquisa -->
+      <form class="d-flex ms-auto w-auto">
+        <input class="form-control me-2" type="search" placeholder="Buscar..." id="searchInput" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+      </form>
 
-    <!-- Barra de Pesquisa -->
-    <form class="d-flex ms-auto w-auto">
-      <input class="form-control me-2" type="search" placeholder="Buscar..." id="searchInput" aria-label="Search">
-      <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
-    </form>
-
-    <!-- Ícones à Direita -->
-    <div class="d-flex align-items-center ms-3">
-      <!-- Sino de Notificações -->
-      <button class="btn btn-light position-relative me-3" id="notification-bell">
-        <i class="fas fa-bell"></i>
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notification-badge">
-          3
-        </span>
-      </button>
-
-      <!-- Alternador de Tema -->
-      <button class="btn btn-light me-3" id="theme-toggle">
-        <i class="fas fa-moon"></i>
-      </button>
-
-      <!-- Avatar de Perfil -->
-      <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle" type="button" id="avatar">
-          <img src="proj23-esc.svg" alt="Avatar" class="rounded-circle" width="30">
+      <!-- Ícones à Direita -->
+      <div class="d-flex align-items-center ms-3">
+        <!-- Sino de Notificações -->
+        <button class="btn btn-light position-relative me-3" id="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notification-badge">
+            3
+          </span>
         </button>
+
+        <!-- Alternador de Tema -->
+        <button class="btn btn-light me-3" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+
+        <!-- Avatar de Perfil -->
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="avatar">
+            <img src="avatar.png" alt="Avatar" class="rounded-circle" width="30">
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- Dashboard Section -->
   <div class="container mt-5">

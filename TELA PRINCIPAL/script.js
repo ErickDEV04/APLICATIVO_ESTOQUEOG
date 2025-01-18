@@ -99,3 +99,13 @@ avatar.addEventListener('click', (event) => {
 document.addEventListener('click', () => {
     profileMenu.style.display = 'none';
 });
+
+// Simulação do nome do usuário (substitua por um valor dinâmico se necessário)
+const username = "Erick"; // Exemplo: nome do usuário
+const usernameElement = document.getElementById('username');
+
+if (username) {
+  usernameElement.textContent = `Olá, ${username}`; // Exibe "Olá, Erick"
+} else {
+  usernameElement.textContent = "Olá, Usuário"; // Mensagem padrão se não houver nome
+}

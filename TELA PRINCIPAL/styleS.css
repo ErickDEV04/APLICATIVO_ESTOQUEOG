@@ -1,229 +1,295 @@
 /* Variáveis CSS */
 :root {
-    --primary-color: #FF3630; /* Cor primária (vermelho) */
-    --secondary-color: #6FFFC1; /* Cor secundária (verde-água) */
-    --background-color: #EFF5FB; /* Cor de fundo */
-    --text-color: #000000; /* Cor do texto */
-    --card-bg-color: #ffffff; /* Cor de fundo dos cards */
-    --card-hover-scale: 1.05; /* Efeito de zoom ao passar o mouse */
-    --border-radius: 10px; /* Raio de borda padrão */
-  }
-  
-  /* Estilos Globais */
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: Arial, sans-serif;
-  }
+  --primary-color: #FF3630; /* Cor primária (vermelho) */
+  --secondary-color: #6FFFC1; /* Cor secundária (verde-água) */
+  --background-color: #EFF5FB; /* Cor de fundo */
+  --text-color: #000000; /* Cor do texto */
+  --card-bg-color: #ffffff; /* Cor de fundo dos cards */
+  --card-hover-scale: 1.05; /* Efeito de zoom ao passar o mouse */
+  --border-radius: 10px; /* Raio de borda padrão */
+}
 
-/* Estilo específico para o Nome do Aplicativo */
-.app-name {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
-    color: #FF3630 !important; /* Cor preta para melhor contraste */
-    margin-left: 10px; /* Espaçamento entre o ícone e o nome */
-    flex-grow: 1; /* Faz o nome ocupar o espaço restante */
-    text-align: center; /* Centraliza o texto horizontalmente */
+/* Estilos Globais */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Escura */
+.navbar {
+  background-color: #FF3630 !important; /* Cor de fundo escura */
+  border-bottom: 1px solid #4b545c; /* Borda inferior sutil */
+}
+
+/* Texto e Ícones na Navbar */
+.navbar-brand,
+.nav-link,
+.navbar-toggler-icon,
+.btn-outline-primary,
+.btn-light {
+  color: #ffffff !important; /* Texto e ícones em branco */
+}
+
+/* Botão de Configurações */
+.btn-outline-primary {
+  border-color: #ffffff; /* Borda branca */
+  color: #ffffff !important; /* Ícone branco */
+}
+
+.btn-outline-primary:hover {
+  background-color: #ffffff; /* Fundo branco ao passar o mouse */
+  color: #343a40 !important; /* Ícone escuro ao passar o mouse */
+}
+
+/* Botão de Notificações e Alternador de Tema */
+.btn-light {
+  background-color: transparent; /* Fundo transparente */
+  border-color: transparent; /* Sem borda */
+}
+
+.btn-light:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente ao passar o mouse */
+}
+
+/* Dropdown do Avatar */
+.dropdown-menu {
+  background-color: #343a40; /* Fundo escuro */
+  border: 1px solid #4b545c; /* Borda sutil */
+}
+
+.dropdown-item {
+  color: #ffffff !important; /* Texto branco */
+}
+
+.dropdown-item:hover {
+  background-color: #4b545c; /* Fundo mais claro ao passar o mouse */
+}
+
+/* Barra de Pesquisa */
+.form-control {
+  width: auto;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+}
+
+/* Cards */
+.card {
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--primary-color) !important;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: scale(var(--card-hover-scale));
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.card-text {
+  color: #fff;
+}
+
+.btn-light {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Tabela */
+.table {
+  background-color: var(--card-bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  color: var(--text-color);
+}
+
+/* Badge de Status */
+.badge {
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-warning {
+  background-color: #FF8E4C !important;
+}
+
+/* Visão Geral de Estoque */
+#overview-card {
+  background-color: var(--card-bg-color) !important;
+  color: var(--text-color) !important;
+  width: 100%;
+  max-width: none;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+#overview-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+#overview-container .card {
+  flex: 1;
+}
+
+/* Alternador de Tema */
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* Sugestões de Busca */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Menu de Perfil */
+.profile-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+}
+
+.profile-menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-menu-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Modo Escuro Light */
+body.dark-theme {
+  background-color: #2d2d2d; /* Fundo escuro suave */
+  color: #e0e0e0; /* Texto claro */
+}
+
+.dark-theme .navbar {
+  background-color: #FF3630 !important; /* Navbar escura suave */
+  border-bottom: 1px solid #4a4a4a; /* Borda sutil */
+}
+
+.dark-theme .card {
+  background-color: #FF3630 !important; /* Cards escuros suaves */
+  color: #e0e0e0; /* Texto claro nos cards */
+}
+
+.dark-theme .table {
+  background-color: #FF3630; /* Tabela escura suave */
+  color: #e0e0e0; /* Texto claro na tabela */
+}
+
+.dark-theme .table th,
+.dark-theme .table td {
+  color: #e0e0e0; /* Texto claro nas células da tabela */
+  border-color: #e0e0e0; /* Cor das bordas da tabela */
+  background-color: #FF3630;
+}
+
+.dark-theme .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #4a4a4a; /* Fundo alternado para linhas ímpares */
+}
+
+.dark-theme .dropdown-menu {
+  background-color: #3a3a3a; /* Dropdown escuro suave */
+  border: 1px solid #4a4a4a; /* Borda sutil */
+}
+
+.dark-theme .dropdown-item {
+  color: #e0e0e0 !important; /* Texto claro nos itens do dropdown */
+}
+
+.dark-theme .dropdown-item:hover {
+  background-color: #4a4a4a; /* Fundo mais claro ao passar o mouse */
+}
+
+.dark-theme .btn-outline-primary {
+  border-color: #e0e0e0; /* Borda clara */
+  color: #e0e0e0 !important; /* Ícone claro */
+}
+
+.dark-theme .btn-outline-primary:hover {
+  background-color: #e0e0e0; /* Fundo claro ao passar o mouse */
+  color: #3a3a3a !important; /* Ícone escuro ao passar o mouse */
+}
+
+.dark-theme .btn-light {
+  background-color: transparent; /* Fundo transparente */
+  border-color: transparent; /* Sem borda */
+  color: #e0e0e0 !important; /* Ícone claro */
+}
+
+.dark-theme .btn-light:hover {
+  background-color: rgba(224, 224, 224, 0.1); /* Fundo semi-transparente ao passar o mouse */
+}
+
+/* Estilo para o Nome do Usuário */
+#username {
+  font-size: 1.2rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  color: #ffffff !important; /* Cor do texto */
+  margin-left: 10px; /* Espaçamento entre o ícone e o nome */
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  #username {
+    font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
   }
-  
-  /* Ajustes para telas menores */
-  @media (max-width: 768px) {
-    .app-name {
-      font-size: 1.2rem; /* Reduz o tamanho da fonte em telas menores */
-    }
-  }
-  
-  /* Ajustes para telas menores */
-  @media (max-width: 768px) {
-    .navbar-brand {
-      font-size: 1.2rem; /* Reduz o tamanho da fonte em telas menores */
-    }
-  }
-  
-  /* Navbar */
-  .navbar {
-    background-color: var(--primary-color);
-  }
-  
-  .navbar-brand,
-  .nav-link {
-    color: #ffffff !important;
-  }
-  
-  .navbar-toggler-icon {
-    background-color: #ffffff;
-  }
-  
-  .navbar-nav .nav-item .nav-link.active {
-    color: var(--secondary-color) !important;
-  }
-  
-  /* Barra de Pesquisa */
-  .form-control {
-    width: auto;
-    border-radius: 20px;
-    border: 1px solid #ced4da;
-  }
-  
-  /* Cards */
-  .card {
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: var(--primary-color) !important;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card:hover {
-    transform: scale(var(--card-hover-scale));
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-  }
-  
-  .card-text {
-    color: #fff;
-  }
-  
-  .btn-light {
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    background-color: transparent;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .btn-light:hover {
-    background-color: var(--primary-color);
-    color: white;
-  }
-  
-  /* Tabela */
-  .table {
-    background-color: var(--card-bg-color);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table th,
-  .table td {
-    color: var(--text-color);
-  }
-  
-  /* Badge de Status */
-  .badge {
-    font-size: 0.85rem;
-    padding: 8px;
-    border-radius: 12px;
-  }
-  
-  .bg-success {
-    background-color: #28a745 !important;
-  }
-  
-  .bg-warning {
-    background-color: #ffc107 !important;
-  }
-  
-  /* Visão Geral de Estoque */
-  #overview-card {
-    background-color: var(--card-bg-color) !important;
-    color: var(--text-color) !important;
-    width: 100%;
-    max-width: none;
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
-  
-  #overview-container {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-  }
-  
-  #overview-container .card {
-    flex: 1;
-  }
-  
-  /* Alternador de Tema */
-  #theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-  
-  /* Sugestões de Busca */
-  .search-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none;
-  }
-  
-  .suggestion-item {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .suggestion-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  /* Menu de Perfil */
-  .profile-menu {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: white;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none;
-  }
-  
-  .profile-menu-item {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .profile-menu-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .navbar-nav {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .form-control {
-      width: 100%;
-      margin-top: 10px;
-    }
-  
-    #overview-container {
-      flex-wrap: wrap;
-    }
-  
-    #overview-container .card {
-      flex: 1 1 100%;
-      margin-bottom: 20px;
-    }
-  }
+}
