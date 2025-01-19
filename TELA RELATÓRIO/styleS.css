@@ -77,24 +77,24 @@ body {
 
 #relatorioForm .form-label {
     font-weight: bold;
-    color: #ff6600; /* Laranja principal */
+    color: #000000; /* Laranja principal */
 }
 
 #relatorioForm .form-control {
     margin-bottom: 10px;
-    border: 1px solid #ff6600; /* Laranja principal */
+    border: 1px solid #aaaaaa; /* Laranja principal */
 }
 
 #relatorioForm .btn {
     margin-right: 10px;
-    background-color: #ff6600; /* Laranja principal */
+    background-color: #07549c; /* Laranja principal */
     border: none;
     color: #fff;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 #relatorioForm .btn:hover {
-    background-color: #cc5200; /* Laranja escuro */
+    background-color: #aaaa; /* Laranja escuro */
     transform: scale(1.1);
 }
 
@@ -110,8 +110,8 @@ body {
 }
 
 .table thead th {
-    background-color: #ff6600; /* Laranja principal */
-    color: #fff;
+    background-color: #ffffff; /* Laranja principal */
+    color: #000000;
     padding: 10px;
     text-align: center;
     font-weight: bold;
