@@ -4,6 +4,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 header {
@@ -11,6 +21,16 @@ header {
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 header h1 {
@@ -23,6 +43,16 @@ header h1 {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: zoomIn 1s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 /* Tabela */
@@ -41,6 +71,7 @@ table thead th {
     text-align: center;
     font-weight: bold;
     border-bottom: 2px solid #ddd;
+    animation: fadeIn 1s ease-in-out;
 }
 
 th, td {
@@ -60,25 +91,37 @@ button {
     border: none;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 button:hover {
     background-color: #45a049;
+    transform: scale(1.1);
 }
 
 /* Cores personalizadas */
 .navbar {
     background-color: #FF3630; /* Vermelho principal */
+    animation: slideDown 1s ease-in-out;
 }
 
 h3 {
     color: #000000; /* Vermelho principal */
+    animation: fadeIn 3s ease-in-out;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(255, 0, 0, 0.1); /* Vermelho claro */
+    transition: background-color 0.9s ease-in-out;
 }
 
 .table-striped tbody tr:nth-of-type(even) {
     background-color: rgba(255, 0, 0, 0.05); /* Vermelho mais claro */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.table-striped tbody tr:hover {
+    background-color: rgba(255, 0, 0, 0.3); /* Vermelho mais forte */
+    transform: scale(3.02);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
