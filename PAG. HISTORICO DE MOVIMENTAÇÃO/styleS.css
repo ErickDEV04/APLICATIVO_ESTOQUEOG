@@ -61,11 +61,11 @@ button:hover {
 
 /* Cores personalizadas */
 .navbar {
-    background-color: #ff0000; /* Vermelho principal */
+    background-color: #FF3630; /* Vermelho principal */
 }
 
 h3 {
-    color: #ff0000; /* Vermelho principal */
+    color: #FF3630; /* Vermelho principal */
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
