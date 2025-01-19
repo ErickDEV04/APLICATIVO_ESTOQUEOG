@@ -1,5 +1,5 @@
 <?php
-include 'db_connec.php';
+include 'db_connect.php';
 
 $sql = "SELECT nome, categoria, quantidade, preco FROM produtos";
 $result = $conn->query($sql);
