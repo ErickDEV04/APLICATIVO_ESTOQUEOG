@@ -5,7 +5,7 @@ function filtrarRelatorio() {
       acao: $('#acao').val(),
       usuario: $('#usuario').val()
     };
-  
+
     $.ajax({
       url: 'http://localhost:5000/fetch_movements',
       method: 'GET',
@@ -29,7 +29,7 @@ function filtrarRelatorio() {
       }
     });
   }
-  
+
   function exportarPDF() {
     var filtros = {
       produto: $('#produto').val(),
@@ -37,7 +37,7 @@ function filtrarRelatorio() {
       acao: $('#acao').val(),
       usuario: $('#usuario').val()
     };
-  
+
     $.ajax({
       url: 'http://localhost:5000/export_pdf',
       method: 'POST',
