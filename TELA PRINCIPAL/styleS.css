@@ -18,7 +18,7 @@ body {
 
 /* Navbar Escura */
 .navbar {
-  background-color: #FF3630 !important; /* Cor de fundo escura */
+  background-color: #343a40 !important; /* Cor de fundo escura */
   border-bottom: 1px solid #4b545c; /* Borda inferior sutil */
 }
 
@@ -138,7 +138,7 @@ body {
 }
 
 .bg-warning {
-  background-color: #FF8E4C !important;
+  background-color: #ffc107 !important;
 }
 
 /* Visão Geral de Estoque */
@@ -221,25 +221,24 @@ body.dark-theme {
 }
 
 .dark-theme .navbar {
-  background-color: #FF3630 !important; /* Navbar escura suave */
+  background-color: #3a3a3a !important; /* Navbar escura suave */
   border-bottom: 1px solid #4a4a4a; /* Borda sutil */
 }
 
 .dark-theme .card {
-  background-color: #FF3630 !important; /* Cards escuros suaves */
+  background-color: #3a3a3a !important; /* Cards escuros suaves */
   color: #e0e0e0; /* Texto claro nos cards */
 }
 
 .dark-theme .table {
-  background-color: #FF3630; /* Tabela escura suave */
+  background-color: #3a3a3a; /* Tabela escura suave */
   color: #e0e0e0; /* Texto claro na tabela */
 }
 
 .dark-theme .table th,
 .dark-theme .table td {
   color: #e0e0e0; /* Texto claro nas células da tabela */
-  border-color: #e0e0e0; /* Cor das bordas da tabela */
-  background-color: #FF3630;
+  border-color: #4a4a4a; /* Cor das bordas da tabela */
 }
 
 .dark-theme .table-striped tbody tr:nth-of-type(odd) {
