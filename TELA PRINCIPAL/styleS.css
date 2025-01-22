@@ -226,7 +226,7 @@ body.dark-theme {
 }
 
 .dark-theme .card {
-  background-color: #3a3a3a !important; /* Cards escuros suaves */
+  background-color: #FF3630 !important; /* Cards escuros suaves */
   color: #e0e0e0; /* Texto claro nos cards */
 }
 
@@ -237,7 +237,7 @@ body.dark-theme {
 
 .dark-theme .table th,
 .dark-theme .table td {
-  color: #e0e0e0; /* Texto claro nas células da tabela */
+  color: #000000; /* Texto claro nas células da tabela */
   border-color: #4a4a4a; /* Cor das bordas da tabela */
 }
 
