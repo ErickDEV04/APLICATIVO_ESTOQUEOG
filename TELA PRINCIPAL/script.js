@@ -42,16 +42,23 @@ notificationBell.addEventListener('click', () => {
 });
 
 // Barra de Pesquisa - Filtro em tempo real
-const searchInput = document.querySelector('.form-control');
-const tableRows = document.querySelectorAll('.table tbody tr');
+const searchInput = document.getElementById('searchInput');
+const tableRows = document.querySelectorAll('#stockTable tbody tr');
 
 searchInput.addEventListener('input', function () {
     const searchQuery = this.value.toLowerCase();
+    let found = false;
     tableRows.forEach(row => {
         const cells = row.getElementsByTagName('td');
-        const found = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(searchQuery));
-        row.style.display = found ? '' : 'none';
+        const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(searchQuery));
+        row.style.display = match ? '' : 'none';
+        if (match) found = true;
     });
+
+    // Exibir mensagem se nenhum resultado for encontrado
+    if (!found && searchQuery !== '') {
+        alert("Nenhum resultado encontrado.");
+    }
 });
 
 // Sugestões de Busca
@@ -105,118 +112,120 @@ const username = "Erick"; // Exemplo: nome do usuário
 const usernameElement = document.getElementById('username');
 
 if (username) {
-  usernameElement.textContent = `Olá, ${username}`; // Exibe "Olá, Erick"
+    usernameElement.textContent = `Olá, ${username}`; // Exibe "Olá, Erick"
 } else {
-  usernameElement.textContent = "Olá, Usuário"; // Mensagem padrão se não houver nome
+    usernameElement.textContent = "Olá, Usuário"; // Mensagem padrão se não houver nome
 }
 
 // Gráfico de Estoque
 const ctx = document.getElementById('stockChart').getContext('2d');
 const stockChart = new Chart(ctx, {
-  type: 'bar', // Tipo de gráfico (barras)
-  data: {
-    labels: ['Produto 1', 'Produto 2', 'Produto 3'], // Nomes dos produtos
-    datasets: [{
-      label: 'Quantidade em Estoque',
-      data: [50, 10, 30], // Quantidades dos produtos
-      backgroundColor: ['#FF3630', '#6FFFC1', '#36A2EB'], // Cores das barras
-      borderColor: ['#FF3630', '#6FFFC1', '#36A2EB'],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+    type: 'bar', // Tipo de gráfico (barras)
+    data: {
+        labels: ['Produto 1', 'Produto 2', 'Produto 3'], // Nomes dos produtos
+        datasets: [{
+            label: 'Quantidade em Estoque',
+            data: [50, 10, 30], // Quantidades dos produtos
+            backgroundColor: ['#FF3630', '#6FFFC1', '#36A2EB'], // Cores das barras
+            borderColor: ['#FF3630', '#6FFFC1', '#36A2EB'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
     }
-  }
 });
 
 // Gráfico de Pizza (Distribuição por Categoria)
 const categoryCtx = document.getElementById('categoryChart').getContext('2d');
 const categoryChart = new Chart(categoryCtx, {
-  type: 'pie', // Tipo de gráfico (pizza)
-  data: {
-    labels: ['Eletrônicos', 'Móveis', 'Vestuário'], // Categorias
-    datasets: [{
-      label: 'Distribuição por Categoria',
-      data: [30, 50, 20], // Quantidades por categoria
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Cores das fatias
-    }]
-  },
-  options: {
-    responsive: true,
-  }
+    type: 'pie', // Tipo de gráfico (pizza)
+    data: {
+        labels: ['Eletrônicos', 'Móveis', 'Vestuário'], // Categorias
+        datasets: [{
+            label: 'Distribuição por Categoria',
+            data: [30, 50, 20], // Quantidades por categoria
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Cores das fatias
+        }]
+    },
+    options: {
+        responsive: true,
+    }
 });
 
 // Gráfico de Linha (Tendência de Movimentação)
 const movementCtx = document.getElementById('movementChart').getContext('2d');
 const movementChart = new Chart(movementCtx, {
-  type: 'line', // Tipo de gráfico (linha)
-  data: {
-    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'], // Meses
-    datasets: [{
-      label: 'Entrada de Produtos',
-      data: [10, 20, 15, 25, 30], // Dados de entrada
-      borderColor: '#4BC0C0', // Cor da linha
-      fill: false,
-    }, {
-      label: 'Saída de Produtos',
-      data: [5, 15, 10, 20, 25], // Dados de saída
-      borderColor: '#FF6384', // Cor da linha
-      fill: false,
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+    type: 'line', // Tipo de gráfico (linha)
+    data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'], // Meses
+        datasets: [{
+            label: 'Entrada de Produtos',
+            data: [10, 20, 15, 25, 30], // Dados de entrada
+            borderColor: '#4BC0C0', // Cor da linha
+            fill: false,
+        }, {
+            label: 'Saída de Produtos',
+            data: [5, 15, 10, 20, 25], // Dados de saída
+            borderColor: '#FF6384', // Cor da linha
+            fill: false,
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
     }
-  }
 });
 
 // Exportar para PDF
 document.getElementById('exportPDF').addEventListener('click', () => {
     const { jsPDF } = window.jspdf; // Importa jsPDF
     const doc = new jsPDF();
-  
+
     // Título do PDF
     doc.setFontSize(18);
     doc.text("Relatório de Estoque", 10, 10);
-  
+    doc.text(`Exportado por: ${username}`, 10, 15);
+    doc.text(`Data: ${new Date().toLocaleString()}`, 10, 20);
+
     // Converte a tabela em um array de dados
     const table = document.getElementById('stockTable');
     const data = [];
     table.querySelectorAll('tr').forEach(row => {
-      const rowData = [];
-      row.querySelectorAll('th, td').forEach(cell => {
-        rowData.push(cell.textContent);
-      });
-      data.push(rowData);
+        const rowData = [];
+        row.querySelectorAll('th, td').forEach(cell => {
+            rowData.push(cell.textContent);
+        });
+        data.push(rowData);
     });
-  
+
     // Adiciona a tabela ao PDF
     doc.autoTable({
-      head: [data[0]], // Cabeçalho da tabela
-      body: data.slice(1), // Dados da tabela
-      startY: 20, // Posição inicial da tabela
-      theme: 'grid', // Estilo da tabela
-      headStyles: { fillColor: [255, 54, 48] }, // Cor do cabeçalho
-      bodyStyles: { fillColor: [255, 255, 255] }, // Cor do corpo
-      alternateRowStyles: { fillColor: [245, 245, 245] }, // Cor das linhas alternadas
+        head: [data[0]], // Cabeçalho da tabela
+        body: data.slice(1), // Dados da tabela
+        startY: 30, // Posição inicial da tabela
+        theme: 'grid', // Estilo da tabela
+        headStyles: { fillColor: [255, 54, 48] }, // Cor do cabeçalho
+        bodyStyles: { fillColor: [255, 255, 255] }, // Cor do corpo
+        alternateRowStyles: { fillColor: [245, 245, 245] }, // Cor das linhas alternadas
     });
-  
+
     // Salva o PDF
     doc.save('relatorio_estoque.pdf');
-  });
+});
 
 // Exportar para Excel
 document.getElementById('exportExcel').addEventListener('click', () => {
     const table = document.getElementById('stockTable');
     const workbook = XLSX.utils.table_to_book(table, { sheet: "Estoque" }); // Converte a tabela em um livro do Excel
     XLSX.writeFile(workbook, 'relatorio_estoque.xlsx'); // Salva o arquivo Excel
-  });
+});
