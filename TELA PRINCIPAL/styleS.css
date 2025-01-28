@@ -289,6 +289,6 @@ body.dark-theme {
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
   #username {
-    font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
+      font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
   }
 }
