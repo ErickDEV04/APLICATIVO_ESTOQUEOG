@@ -1,219 +1,295 @@
-// Alternador de Tema
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-
-// Carregar tema salvo
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    body.classList.add(savedTheme);
-    if (savedTheme === 'dark-theme') {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Ícone de sol para tema escuro
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Ícone de lua para tema claro
+/* Variáveis CSS */
+:root {
+    --primary-color: #e2e2e2; /* Cor primária (vermelho) */
+    --secondary-color: #6FFFC1; /* Cor secundária (verde-água) */
+    --background-color: #EFF5FB; /* Cor de fundo */
+    --text-color: #000000; /* Cor do texto */
+    --card-bg-color: #ffffff; /* Cor de fundo dos cards */
+    --card-hover-scale: 1.05; /* Efeito de zoom ao passar o mouse */
+    --border-radius: 10px; /* Raio de borda padrão */
+  }
+  
+  /* Estilos Globais */
+  body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar Escura */
+  .navbar {
+    background-color: #ff6e49 !important; /* Cor de fundo escura */
+    border-bottom: 1px solid #4b545c; /* Borda inferior sutil */
+  }
+  
+  /* Texto e Ícones na Navbar */
+  .navbar-brand,
+  .nav-link,
+  .navbar-toggler-icon,
+  .btn-outline-primary,
+  .btn-light {
+    color: #ffffff !important; /* Texto e ícones em branco */
+  }
+  
+  /* Botão de Configurações */
+  .btn-outline-primary {
+    border-color: #ffffff; /* Borda branca */
+    color: #ffffff !important; /* Ícone branco */
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #ffffff; /* Fundo branco ao passar o mouse */
+    color: #343a40 !important; /* Ícone escuro ao passar o mouse */
+  }
+  
+  /* Botão de Notificações e Alternador de Tema */
+  .btn-light {
+    background-color: transparent; /* Fundo transparente */
+    border-color: transparent; /* Sem borda */
+  }
+  
+  .btn-light:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente ao passar o mouse */
+  }
+  
+  /* Dropdown do Avatar */
+  .dropdown-menu {
+    background-color: #343a40; /* Fundo escuro */
+    border: 1px solid #4b545c; /* Borda sutil */
+  }
+  
+  .dropdown-item {
+    color: #ffffff !important; /* Texto branco */
+  }
+  
+  .dropdown-item:hover {
+    background-color: #4b545c; /* Fundo mais claro ao passar o mouse */
+  }
+  
+  /* Barra de Pesquisa */
+  .form-control {
+    width: auto;
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+  }
+  
+  /* Cards */
+  .card {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--primary-color) !important;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover {
+    transform: scale(var(--card-hover-scale));
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6b6b6b;
+  }
+  
+  .card-text {
+    color: #6b6b6b;
+  }
+  
+  .btn-light {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-light:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  /* Tabela */
+  .table {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th,
+  .table td {
+    color: var(--text-color);
+  }
+  
+  /* Badge de Status */
+  .badge {
+    font-size: 0.85rem;
+    padding: 8px;
+    border-radius: 12px;
+  }
+  
+  .bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  .bg-warning {
+    background-color: #ffc107 !important;
+  }
+  
+  /* Visão Geral de Estoque */
+  #overview-card {
+    background-color: var(--card-bg-color) !important;
+    color: var(--text-color) !important;
+    width: 100%;
+    max-width: none;
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  
+  #overview-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+  
+  #overview-container .card {
+    flex: 1;
+  }
+  
+  /* Alternador de Tema */
+  #theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  /* Sugestões de Busca */
+  .search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+  }
+  
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Menu de Perfil */
+  .profile-menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+  }
+  
+  .profile-menu-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .profile-menu-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Modo Escuro Light */
+  body.dark-theme {
+    background-color: #2d2d2d; /* Fundo escuro suave */
+    color: #e0e0e0; /* Texto claro */
+  }
+  
+  .dark-theme .navbar {
+    background-color: #3a3a3a !important; /* Navbar escura suave */
+    border-bottom: 1px solid #4a4a4a; /* Borda sutil */
+  }
+  
+  .dark-theme .card {
+    background-color: #3a3a3a !important; /* Cards escuros suaves */
+    color: #e0e0e0; /* Texto claro nos cards */
+  }
+  
+  .dark-theme .table {
+    background-color: #3a3a3a; /* Tabela escura suave */
+    color: #e0e0e0; /* Texto claro na tabela */
+  }
+  
+  .dark-theme .table th,
+  .dark-theme .table td {
+    color: #e0e0e0; /* Texto claro nas células da tabela */
+    border-color: #4a4a4a; /* Cor das bordas da tabela */
+  }
+  
+  .dark-theme .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #4a4a4a; /* Fundo alternado para linhas ímpares */
+  }
+  
+  .dark-theme .dropdown-menu {
+    background-color: #3a3a3a; /* Dropdown escuro suave */
+    border: 1px solid #4a4a4a; /* Borda sutil */
+  }
+  
+  .dark-theme .dropdown-item {
+    color: #e0e0e0 !important; /* Texto claro nos itens do dropdown */
+  }
+  
+  .dark-theme .dropdown-item:hover {
+    background-color: #4a4a4a; /* Fundo mais claro ao passar o mouse */
+  }
+  
+  .dark-theme .btn-outline-primary {
+    border-color: #e0e0e0; /* Borda clara */
+    color: #e0e0e0 !important; /* Ícone claro */
+  }
+  
+  .dark-theme .btn-outline-primary:hover {
+    background-color: #e0e0e0; /* Fundo claro ao passar o mouse */
+    color: #3a3a3a !important; /* Ícone escuro ao passar o mouse */
+  }
+  
+  .dark-theme .btn-light {
+    background-color: transparent; /* Fundo transparente */
+    border-color: transparent; /* Sem borda */
+    color: #e0e0e0 !important; /* Ícone claro */
+  }
+  
+  .dark-theme .btn-light:hover {
+    background-color: rgba(224, 224, 224, 0.1); /* Fundo semi-transparente ao passar o mouse */
+  }
+  
+  /* Estilo para o Nome do Usuário */
+  #username {
+    font-size: 1.2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    color: #ffffff !important; /* Cor do texto */
+    margin-left: 10px; /* Espaçamento entre o ícone e o nome */
+  }
+  
+  /* Ajustes para telas menores */
+  @media (max-width: 768px) {
+    #username {
+      font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
     }
-}
-
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
-    const currentTheme = body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
-    localStorage.setItem('theme', currentTheme);
-
-    // Alternar ícone
-    if (currentTheme === 'dark-theme') {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-});
-
-// Notificações
-const notificationBell = document.getElementById('notification-bell');
-const notificationBadge = document.querySelector('.notification-badge');
-
-const notifications = [
-    "Produto X está com estoque baixo.",
-    "Novo produto cadastrado: Produto Y.",
-    "Movimentação realizada: Saída de 10 unidades do Produto Z."
-];
-
-notificationBell.addEventListener('click', () => {
-    alert(`Você tem ${notifications.length} notificações:\n\n${notifications.join('\n')}`);
-    notificationBadge.textContent = '0'; // Limpa notificações após visualizar
-});
-
-// Barra de Pesquisa - Filtro em tempo real
-const searchInput = document.getElementById('searchInput');
-const tableRows = document.querySelectorAll('#stockTable tbody tr');
-
-searchInput.addEventListener('input', function () {
-    console.log("Digitando: ", this.value); 
-});
-
-// Sugestões de Busca
-const suggestions = ['Produto 1', 'Produto 2', 'Produto 3']; // Exemplo estático de sugestões
-const suggestionsDropdown = document.createElement('div');
-suggestionsDropdown.className = 'search-suggestions';
-document.querySelector('.d-flex').appendChild(suggestionsDropdown);
-
-searchInput.addEventListener('input', function () {
-    const searchQuery = this.value.toLowerCase();
-    const filteredSuggestions = suggestions.filter(suggestion => suggestion.toLowerCase().includes(searchQuery));
-
-    if (filteredSuggestions.length > 0 && searchQuery !== '') {
-        suggestionsDropdown.innerHTML = filteredSuggestions.map(suggestion => `<div class="suggestion-item">${suggestion}</div>`).join('');
-        suggestionsDropdown.style.display = 'block';
-    } else {
-        suggestionsDropdown.style.display = 'none';
-    }
-});
-
-// Fechar sugestões ao clicar fora
-document.addEventListener('click', (event) => {
-    if (!event.target.closest('.form-control') && !event.target.closest('.search-suggestions')) {
-        suggestionsDropdown.style.display = 'none';
-    }
-});
-
-// Avatar Menu
-const avatar = document.getElementById('avatar');
-const profileMenu = document.createElement('div');
-profileMenu.className = 'profile-menu';
-profileMenu.innerHTML = `
-    <div class="profile-menu-item">Perfil</div>
-    <div class="profile-menu-item">Configurações</div>
-    <div class="profile-menu-item">Logout</div>
-`;
-document.body.appendChild(profileMenu);
-
-avatar.addEventListener('click', (event) => {
-    event.stopPropagation(); // Evita que o evento de clique no documento feche o menu imediatamente
-    profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
-});
-
-// Fechar menu de perfil ao clicar fora
-document.addEventListener('click', () => {
-    profileMenu.style.display = 'none';
-});
-
-// Simulação do nome do usuário (substitua por um valor dinâmico se necessário)
-const username = "Erick"; // Exemplo: nome do usuário
-const usernameElement = document.getElementById('username');
-
-if (username) {
-    usernameElement.textContent = `Olá, ${username}`; // Exibe "Olá, Erick"
-} else {
-    usernameElement.textContent = "Olá, Usuário"; // Mensagem padrão se não houver nome
-}
-
-// Gráfico de Estoque
-const ctx = document.getElementById('stockChart').getContext('2d');
-const stockChart = new Chart(ctx, {
-    type: 'bar', // Tipo de gráfico (barras)
-    data: {
-        labels: ['Produto 1', 'Produto 2', 'Produto 3'], // Nomes dos produtos
-        datasets: [{
-            label: 'Quantidade em Estoque',
-            data: [50, 10, 30], // Quantidades dos produtos
-            backgroundColor: ['#FF3630', '#6FFFC1', '#36A2EB'], // Cores das barras
-            borderColor: ['#FF3630', '#6FFFC1', '#36A2EB'],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
-// Gráfico de Pizza (Distribuição por Categoria)
-const categoryCtx = document.getElementById('categoryChart').getContext('2d');
-const categoryChart = new Chart(categoryCtx, {
-    type: 'pie', // Tipo de gráfico (pizza)
-    data: {
-        labels: ['Eletrônicos', 'Móveis', 'Vestuário'], // Categorias
-        datasets: [{
-            label: 'Distribuição por Categoria',
-            data: [30, 50, 20], // Quantidades por categoria
-            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'], // Cores das fatias
-        }]
-    },
-    options: {
-        responsive: true,
-    }
-});
-
-// Gráfico de Linha (Tendência de Movimentação)
-const movementCtx = document.getElementById('movementChart').getContext('2d');
-const movementChart = new Chart(movementCtx, {
-    type: 'line', // Tipo de gráfico (linha)
-    data: {
-        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'], // Meses
-        datasets: [{
-            label: 'Entrada de Produtos',
-            data: [10, 20, 15, 25, 30], // Dados de entrada
-            borderColor: '#4BC0C0', // Cor da linha
-            fill: false,
-        }, {
-            label: 'Saída de Produtos',
-            data: [5, 15, 10, 20, 25], // Dados de saída
-            borderColor: '#FF6384', // Cor da linha
-            fill: false,
-        }]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
-// Exportar para PDF
-document.getElementById('exportPDF').addEventListener('click', () => {
-    const { jsPDF } = window.jspdf; // Importa jsPDF
-    const doc = new jsPDF();
-
-    // Título do PDF
-    doc.setFontSize(18);
-    doc.text("Relatório de Estoque", 10, 10);
-    doc.text(`Exportado por: ${username}`, 10, 15);
-    doc.text(`Data: ${new Date().toLocaleString()}`, 10, 20);
-
-    // Converte a tabela em um array de dados
-    const table = document.getElementById('stockTable');
-    const data = [];
-    table.querySelectorAll('tr').forEach(row => {
-        const rowData = [];
-        row.querySelectorAll('th, td').forEach(cell => {
-            rowData.push(cell.textContent);
-        });
-        data.push(rowData);
-    });
-
-    // Adiciona a tabela ao PDF
-    doc.autoTable({
-        head: [data[0]], // Cabeçalho da tabela
-        body: data.slice(1), // Dados da tabela
-        startY: 30, // Posição inicial da tabela
-        theme: 'grid', // Estilo da tabela
-        headStyles: { fillColor: [255, 54, 48] }, // Cor do cabeçalho
-        bodyStyles: { fillColor: [255, 255, 255] }, // Cor do corpo
-        alternateRowStyles: { fillColor: [245, 245, 245] }, // Cor das linhas alternadas
-    });
-
-    // Salva o PDF
-    doc.save('relatorio_estoque.pdf');
-});
-
-// Exportar para Excel
-document.getElementById('exportExcel').addEventListener('click', () => {
-    const table = document.getElementById('stockTable');
-    const workbook = XLSX.utils.table_to_book(table, { sheet: "Estoque" }); // Converte a tabela em um livro do Excel
-    XLSX.writeFile(workbook, 'relatorio_estoque.xlsx'); // Salva o arquivo Excel
-});
+  }
+  
