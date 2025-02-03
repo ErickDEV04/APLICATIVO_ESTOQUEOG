@@ -33,8 +33,10 @@
   
   /* Botão de Configurações */
   .btn-outline-primary {
-    border-color: #ffffff; /* Borda branca */
+    border-color: none; /* Borda branca */
     color: #ffffff !important; /* Ícone branco */
+    border: none;
+    background-color: none;
   }
   
   .btn-outline-primary:hover {
@@ -45,11 +47,11 @@
   /* Botão de Notificações e Alternador de Tema */
   .btn-light {
     background-color: transparent; /* Fundo transparente */
-    border-color: transparent; /* Sem borda */
+    border-color: none; /* Sem borda */
   }
   
   .btn-light:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente ao passar o mouse */
+    background-color: #ffffff !important; /* Fundo semi-transparente ao passar o mouse */
   }
   
   /* Dropdown do Avatar */
@@ -212,37 +214,54 @@
   
   .profile-menu-item:hover {
     background-color: #f8f9fa;
+    color: #2d2d2d;
   }
   
   /* Modo Escuro Light */
   body.dark-theme {
     background-color: #2d2d2d; /* Fundo escuro suave */
-    color: #e0e0e0; /* Texto claro */
+    color: #ffffff; /* Texto claro */
   }
   
   .dark-theme .navbar {
-    background-color: #3a3a3a !important; /* Navbar escura suave */
+    background-color: #ff6e49 !important; /* Navbar escura suave */
     border-bottom: 1px solid #4a4a4a; /* Borda sutil */
+  }
+
+  .dark-theme #username {
+    color: #2d2d2d !important;
   }
   
   .dark-theme .card {
     background-color: #3a3a3a !important; /* Cards escuros suaves */
-    color: #e0e0e0; /* Texto claro nos cards */
+    color: #ffffff !important; /* Texto claro nos cards */
+  }
+
+  .dark-theme .card-title {
+    color: #f1f1f1;
   }
   
+  .dark-theme .card-text {
+    color: #f1f1f1;
+  }
+
+  .dark-theme .blk-theme{
+    color: #f1f1f1 !important;
+  }
+
   .dark-theme .table {
     background-color: #3a3a3a; /* Tabela escura suave */
-    color: #e0e0e0; /* Texto claro na tabela */
+    color: #ffffff; /* Texto claro na tabela */
   }
   
   .dark-theme .table th,
   .dark-theme .table td {
-    color: #e0e0e0; /* Texto claro nas células da tabela */
-    border-color: #4a4a4a; /* Cor das bordas da tabela */
+    color: #2d2d2d; /* Texto claro nas células da tabela */
+    border-color: #2d2d2d; /* Cor das bordas da tabela */
   }
   
   .dark-theme .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #4a4a4a; /* Fundo alternado para linhas ímpares */
+    background-color: #2d2d2d; /* Fundo alternado para linhas ímpares */
   }
   
   .dark-theme .dropdown-menu {
@@ -260,7 +279,7 @@
   
   .dark-theme .btn-outline-primary {
     border-color: #e0e0e0; /* Borda clara */
-    color: #e0e0e0 !important; /* Ícone claro */
+    color: #2d2d2d !important; /* Ícone claro */
   }
   
   .dark-theme .btn-outline-primary:hover {
@@ -271,7 +290,7 @@
   .dark-theme .btn-light {
     background-color: transparent; /* Fundo transparente */
     border-color: transparent; /* Sem borda */
-    color: #e0e0e0 !important; /* Ícone claro */
+    color: #2d2d2d !important; /* Ícone claro */
   }
   
   .dark-theme .btn-light:hover {
@@ -282,7 +301,7 @@
   #username {
     font-size: 1.2rem; /* Tamanho da fonte */
     font-weight: bold; /* Texto em negrito */
-    color: #ffffff !important; /* Cor do texto */
+    color: #ffffff; /* Cor do texto */
     margin-left: 10px; /* Espaçamento entre o ícone e o nome */
   }
   
@@ -292,4 +311,3 @@
       font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
     }
   }
-  
