@@ -90,11 +90,15 @@ document.addEventListener('click', (event) => {
 const avatar = document.getElementById('avatar');
 const profileMenu = document.createElement('div');
 profileMenu.className = 'profile-menu';
+profileMenu.style.backgroundColor = '#4b545c';
+profileMenu.style.border = '#4b545c';
+profileMenu.style.color = 'white'; // Define a cor do texto como branca
 profileMenu.innerHTML = `
     <div class="profile-menu-item">Perfil</div>
     <div class="profile-menu-item">Configurações</div>
     <div class="profile-menu-item">Logout</div>
 `;
+
 document.body.appendChild(profileMenu);
 
 avatar.addEventListener('click', (event) => {
@@ -108,7 +112,7 @@ document.addEventListener('click', () => {
 });
 
 // Simulação do nome do usuário (substitua por um valor dinâmico se necessário)
-const username = "Erick"; // Exemplo: nome do usuário
+const username = "LUIZINHO"; // Exemplo: nome do usuário
 const usernameElement = document.getElementById('username');
 
 if (username) {
