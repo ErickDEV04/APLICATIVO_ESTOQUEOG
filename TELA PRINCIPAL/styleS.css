@@ -1,313 +1,420 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 /* Variáveis CSS */
 :root {
-    --primary-color: #e2e2e2; /* Cor primária (vermelho) */
-    --secondary-color: #6FFFC1; /* Cor secundária (verde-água) */
-    --background-color: #EFF5FB; /* Cor de fundo */
-    --text-color: #000000; /* Cor do texto */
-    --card-bg-color: #ffffff; /* Cor de fundo dos cards */
-    --card-hover-scale: 1.05; /* Efeito de zoom ao passar o mouse */
-    --border-radius: 10px; /* Raio de borda padrão */
-  }
-  
-  /* Estilos Globais */
-  body {
-    background-color: white;
-    color: black;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Navbar Escura */
-  .navbar {
-    background-color: #ff6e49 !important; /* Cor de fundo escura */
-    border-bottom: 1px solid #4b545c; /* Borda inferior sutil */
-  }
-  
-  /* Texto e Ícones na Navbar */
-  .navbar-brand,
-  .nav-link,
-  .navbar-toggler-icon,
-  .btn-outline-primary,
-  .btn-light {
-    color: #ffffff !important; /* Texto e ícones em branco */
-  }
-  
-  /* Botão de Configurações */
-  .btn-outline-primary {
-    border-color: none; /* Borda branca */
-    color: #ffffff !important; /* Ícone branco */
-    border: none;
-    background-color: none;
-  }
-  
-  .btn-outline-primary:hover {
-    background-color: #ffffff; /* Fundo branco ao passar o mouse */
-    color: #343a40 !important; /* Ícone escuro ao passar o mouse */
-  }
-  
-  /* Botão de Notificações e Alternador de Tema */
-  .btn-light {
-    background-color: transparent; /* Fundo transparente */
-    border-color: none; /* Sem borda */
-  }
-  
-  .btn-light:hover {
-    background-color: #ffffff !important; /* Fundo semi-transparente ao passar o mouse */
-  }
-  
-  /* Dropdown do Avatar */
-  .dropdown-menu {
-    background-color: #343a40; /* Fundo escuro */
-    border: 1px solid #4b545c; /* Borda sutil */
-  }
-  
-  .dropdown-item {
-    color: #ffffff !important; /* Texto branco */
-  }
-  
-  .dropdown-item:hover {
-    background-color: #4b545c; /* Fundo mais claro ao passar o mouse */
-  }
-  
-  /* Barra de Pesquisa */
-  .form-control {
-    width: auto;
-    border-radius: 20px;
-    border: 1px solid #ced4da;
-  }
-  
-  /* Cards */
-  .card {
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: var(--primary-color) !important;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card:hover {
-    transform: scale(var(--card-hover-scale));
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #6b6b6b;
-  }
-  
-  .card-text {
-    color: #6b6b6b;
-  }
-  
-  .btn-light {
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    background-color: transparent;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .btn-light:hover {
-    background-color: var(--primary-color);
-    color: white;
-  }
-  
-  /* Tabela */
-  .table {
-    background-color: var(--card-bg-color);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table th,
-  .table td {
-    color: var(--text-color);
-  }
-  
-  /* Badge de Status */
-  .badge {
-    font-size: 0.85rem;
-    padding: 8px;
-    border-radius: 12px;
-  }
-  
-  .bg-success {
-    background-color: #28a745 !important;
-  }
-  
-  .bg-warning {
-    background-color: #ffc107 !important;
-  }
-  
-  /* Visão Geral de Estoque */
-  #overview-card {
-    background-color: var(--card-bg-color) !important;
-    color: var(--text-color) !important;
-    width: 100%;
-    max-width: none;
-    flex-grow: 1;
-    flex-shrink: 0;
-  }
-  
-  #overview-container {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-  }
-  
-  #overview-container .card {
-    flex: 1;
-  }
-  
-  /* Alternador de Tema */
-  #theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-  
-  /* Sugestões de Busca */
-  .search-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none;
-  }
-  
-  .suggestion-item {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .suggestion-item:hover {
-    background-color: #f8f9fa;
-  }
-  
-  /* Menu de Perfil */
-  .profile-menu {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: white;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none;
-  }
-  
-  .profile-menu-item {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .profile-menu-item:hover {
-    background-color: #f8f9fa;
-    color: #2d2d2d;
-  }
-  
-  /* Modo Escuro Light */
-  body.dark-theme {
-    background-color: #2d2d2d; /* Fundo escuro suave */
-    color: #ffffff; /* Texto claro */
-  }
-  
-  .dark-theme .navbar {
-    background-color: #ff6e49 !important; /* Navbar escura suave */
-    border-bottom: 1px solid #4a4a4a; /* Borda sutil */
-  }
+  --primary-color: #e2e2e2; /* Cor primária (vermelho) */
+  --secondary-color: #6fffc1; /* Cor secundária (verde-água) */
+  --background-color: #eff5fb; /* Cor de fundo */
+  --text-color: #000000; /* Cor do texto */
+  --card-bg-color: #ffffff; /* Cor de fundo dos cards */
+  --card-hover-scale: 1.05; /* Efeito de zoom ao passar o mouse */
+  --border-radius: 10px; /* Raio de borda padrão */
+}
 
-  .dark-theme #username {
-    color: #2d2d2d !important;
-  }
-  
-  .dark-theme .card {
-    background-color: #3a3a3a !important; /* Cards escuros suaves */
-    color: #ffffff !important; /* Texto claro nos cards */
-  }
+/* Estilos Globais */
+body {
+  background-color: white;
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+}
 
-  .dark-theme .card-title {
-    color: #f1f1f1;
-  }
-  
-  .dark-theme .card-text {
-    color: #f1f1f1;
-  }
+/* Navbar Escura */
+.navbar {
+  background-color: #ff6e49 !important; /* Cor de fundo escura */
+  border-bottom: 1px solid #4b545c; /* Borda inferior sutil */
+  font-family: "Roboto", serif;
+}
 
-  .dark-theme .blk-theme{
-    color: #f1f1f1 !important;
-  }
+/* Texto e Ícones na Navbar */
+.navbar-brand,
+.nav-link,
+.navbar-toggler-icon,
+.btn-outline-primary,
+.btn-light {
+  color: #ffffff !important; /* Texto e ícones em branco */
+}
 
-  .dark-theme .table {
-    background-color: #3a3a3a; /* Tabela escura suave */
-    color: #ffffff; /* Texto claro na tabela */
-  }
-  
-  .dark-theme .table th,
-  .dark-theme .table td {
-    color: #2d2d2d; /* Texto claro nas células da tabela */
-    border-color: #2d2d2d; /* Cor das bordas da tabela */
-  }
-  
-  .dark-theme .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #2d2d2d; /* Fundo alternado para linhas ímpares */
-  }
-  
-  .dark-theme .dropdown-menu {
-    background-color: #3a3a3a; /* Dropdown escuro suave */
-    border: 1px solid #4a4a4a; /* Borda sutil */
-  }
-  
-  .dark-theme .dropdown-item {
-    color: #e0e0e0 !important; /* Texto claro nos itens do dropdown */
-  }
-  
-  .dark-theme .dropdown-item:hover {
-    background-color: #4a4a4a; /* Fundo mais claro ao passar o mouse */
-  }
-  
-  .dark-theme .btn-outline-primary {
-    border-color: #e0e0e0; /* Borda clara */
-    color: #2d2d2d !important; /* Ícone claro */
-  }
-  
-  .dark-theme .btn-outline-primary:hover {
-    background-color: #e0e0e0; /* Fundo claro ao passar o mouse */
-    color: #3a3a3a !important; /* Ícone escuro ao passar o mouse */
-  }
-  
-  .dark-theme .btn-light {
-    background-color: transparent; /* Fundo transparente */
-    border-color: transparent; /* Sem borda */
-    color: #2d2d2d !important; /* Ícone claro */
-  }
-  
-  .dark-theme .btn-light:hover {
-    background-color: rgba(224, 224, 224, 0.1); /* Fundo semi-transparente ao passar o mouse */
-  }
-  
-  /* Estilo para o Nome do Usuário */
+/* Botão de Configurações */
+.btn-outline-primary {
+  border-color: none; /* Borda branca */
+  color: #ffffff !important; /* Ícone branco */
+  border: none;
+  background-color: none;
+}
+
+.btn-outline-primary:hover {
+  background-color: #ffffff; /* Fundo branco ao passar o mouse */
+  color: #343a40 !important; /* Ícone escuro ao passar o mouse */
+}
+
+/* Botão de Configurações */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+}
+
+.overlay.open {
+  display: block;
+}
+
+.settings-panel {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #bababa;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.settings-panel.open {
+  right: 0;
+}
+
+.settings-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.settings-title {
+  font-family: "Roboto", serif;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.settings-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-button {
+  background-color: #6b6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Roboto", serif;
+}
+
+.settings-button:hover {
+  background-color: #b0b0b0;
+}
+
+.settings-footer {
+  margin-top: 30px;
+}
+
+.company-logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.app-version {
+  font-size: 14px;
+  color: #666;
+  font-family: "Roboto", serif;
+}
+
+/* Botão de Notificações e Alternador de Tema */
+.btn-light {
+  background-color: transparent; /* Fundo transparente */
+  border-color: none; /* Sem borda */
+}
+
+.btn-light:hover {
+  background-color: #ffffff !important; /* Fundo semi-transparente ao passar o mouse */
+}
+
+/* Dropdown do Avatar */
+.dropdown-menu {
+  background-color: #343a40; /* Fundo escuro */
+  border: 1px solid #4b545c; /* Borda sutil */
+}
+
+.dropdown-item {
+  color: #ffffff !important; /* Texto branco */
+}
+
+.dropdown-item:hover {
+  background-color: #4b545c; /* Fundo mais claro ao passar o mouse */
+}
+
+/* Barra de Pesquisa */
+.form-control {
+  width: auto;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+  font-family: "Roboto", serif;
+}
+
+/* Cards */
+.card {
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--primary-color) !important;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: scale(var(--card-hover-scale));
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-family: "Roboto", serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #6b6b6b;
+}
+
+.card-text {
+  color: #6b6b6b;
+  font-family: "Roboto", serif;
+}
+
+.btn-light {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Tabela */
+.table {
+  background-color: var(--card-bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  color: var(--text-color);
+}
+
+/* Badge de Status */
+.badge {
+  font-family: "Roboto", serif;
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+}
+
+/* Visão Geral de Estoque */
+#overview-card {
+  background-color: var(--card-bg-color) !important;
+  color: var(--text-color) !important;
+  width: 100%;
+  max-width: none;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+#overview-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+#overview-container .card {
+  flex: 1;
+}
+
+/* Alternador de Tema */
+#theme-toggle {
+  background: none;
+  border: none !important;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-family: "Roboto", serif;
+}
+
+#theme-toggle:hover {
+  color: #000000 !important;
+}
+
+/* sino de notificações */
+#notification-bell :hover{
+  color: black !important;
+}
+
+#notification-bell {
+border: none;
+} 
+
+/* Sugestões de Busca */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Menu de Perfil */
+.profile-menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+}
+
+.profile-menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-menu-item:hover {
+  background-color: #f8f9fa;
+  color: #2d2d2d;
+}
+
+/* Modo Escuro Light */
+body.dark-theme {
+  background-color: #2d2d2d; /* Fundo escuro suave */
+  color: #ffffff; /* Texto claro */
+}
+
+.dark-theme .navbar {
+  background-color: #ff6e49 !important; /* Navbar escura suave */
+  border-bottom: 1px solid #4a4a4a; /* Borda sutil */
+}
+
+.dark-theme #username {
+  color: #2d2d2d !important;
+}
+
+.dark-theme .card {
+  background-color: #3a3a3a !important; /* Cards escuros suaves */
+  color: #ffffff !important; /* Texto claro nos cards */
+}
+
+.dark-theme .card-title {
+  color: #f1f1f1;
+}
+
+.dark-theme .card-text {
+  color: #f1f1f1;
+}
+
+.dark-theme .blk-theme {
+  color: #f1f1f1 !important;
+}
+
+.dark-theme .table {
+  background-color: #3a3a3a; /* Tabela escura suave */
+  color: #ffffff; /* Texto claro na tabela */
+}
+
+.dark-theme .table th,
+.dark-theme .table td {
+  color: #2d2d2d; /* Texto claro nas células da tabela */
+  border-color: #2d2d2d; /* Cor das bordas da tabela */
+}
+
+.dark-theme .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #2d2d2d; /* Fundo alternado para linhas ímpares */
+}
+
+.dark-theme .dropdown-menu {
+  background-color: #3a3a3a; /* Dropdown escuro suave */
+  border: 1px solid #4a4a4a; /* Borda sutil */
+}
+
+.dark-theme .dropdown-item {
+  color: #e0e0e0 !important; /* Texto claro nos itens do dropdown */
+}
+
+.dark-theme .dropdown-item:hover {
+  background-color: #4a4a4a; /* Fundo mais claro ao passar o mouse */
+}
+
+.dark-theme .btn-outline-primary {
+  border-color: #e0e0e0; /* Borda clara */
+  color: #2d2d2d !important; /* Ícone claro */
+}
+
+.dark-theme .btn-outline-primary:hover {
+  background-color: #e0e0e0; /* Fundo claro ao passar o mouse */
+  color: #3a3a3a !important; /* Ícone escuro ao passar o mouse */
+}
+
+.dark-theme .btn-light {
+  background-color: transparent; /* Fundo transparente */
+  border-color: transparent; /* Sem borda */
+  color: #2d2d2d !important; /* Ícone claro */
+}
+
+.dark-theme .btn-light:hover {
+  background-color: rgba(
+    224,
+    224,
+    224,
+    0.1
+  ); /* Fundo semi-transparente ao passar o mouse */
+}
+
+/* Estilo para o Nome do Usuário */
+#username {
+  font-size: 1.2rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  font-family: "Roboto", serif; /* Fonte */
+  color: #ffffff; /* Cor do texto */
+  margin-left: 10px; /* Espaçamento entre o ícone e o nome */
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
   #username {
-    font-size: 1.2rem; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
-    color: #ffffff; /* Cor do texto */
-    margin-left: 10px; /* Espaçamento entre o ícone e o nome */
+    font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
   }
-  
-  /* Ajustes para telas menores */
-  @media (max-width: 768px) {
-    #username {
-      font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
-    }
-  }
+}
