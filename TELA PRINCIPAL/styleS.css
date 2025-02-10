@@ -418,3 +418,19 @@ body.dark-theme {
     font-size: 1rem; /* Reduz o tamanho da fonte em telas menores */
   }
 }
+
+/* Estilo para o Rodapé */
+.footer {
+    width: 100%;
+    background-color: #8e8e8e;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .footer .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
