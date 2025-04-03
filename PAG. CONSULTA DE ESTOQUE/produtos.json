@@ -1,0 +1,32 @@
+[
+    {
+      "nome": "Notebook Dell Inspiron",
+      "categoria": "Eletrônicos",
+      "quantidade": 5,
+      "preco": "R$ 3.599,90"
+    },
+    {
+      "nome": "Mouse Sem Fio Logitech",
+      "categoria": "Acessórios",
+      "quantidade": 15,
+      "preco": "R$ 129,90"
+    },
+    {
+      "nome": "Teclado Mecânico RGB",
+      "categoria": "Acessórios",
+      "quantidade": 8,
+      "preco": "R$ 249,90"
+    },
+    {
+      "nome": "Monitor 24\" Full HD",
+      "categoria": "Eletrônicos",
+      "quantidade": 12,
+      "preco": "R$ 899,90"
+    },
+    {
+      "nome": "Headphone Bluetooth",
+      "categoria": "Acessórios",
+      "quantidade": 3,
+      "preco": "R$ 199,90"
+    }
+  ]
