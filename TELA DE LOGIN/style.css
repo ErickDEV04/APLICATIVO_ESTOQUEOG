@@ -1,22 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-*{
+:root {
+    --primary-color: #FF3630;
+    --secondary-color: #FF8E4C;
+    --error-color: #ff3333;
+    --text-color: #333;
+    --bg-color: #f8f8ff;
+    --input-bg: #eee;
+  }
+  
+  /* Reset e Base */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-}
-
-body{
-    background-color: #f8f8ff;
+  }
+  
+  body {
+    background-color: var(--bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
-}
-
-.container{
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Container Principal */
+  .container {
     background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
@@ -25,28 +35,30 @@ body{
     width: 768px;
     max-width: 100%;
     min-height: 480px;
-}
-
-.container p{
+  }
+  
+  /* Textos */
+  .container p {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
-}
-
-.container span{
+  }
+  
+  .container span {
     font-size: 12px;
-}
-
-.container a{
-    color: #333;
+  }
+  
+  .container a {
+    color: var(--text-color);
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
-}
-
-.container button{
-    background-color: #FF3630;
+  }
+  
+  /* Botões */
+  .container button {
+    background-color: var(--primary-color);
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -57,14 +69,31 @@ body{
     text-transform: uppercase;
     margin-top: 10px;
     cursor: pointer;
-}
-
-.container button.hidden{
+    transition: all 0.3s ease;
+  }
+  
+  .container button:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+  
+  .container button:active {
+    transform: scale(0.95);
+  }
+  
+  .container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .container button.hidden {
     background-color: transparent;
     border-color: #fff;
-}
-
-.container form{
+  }
+  
+  /* Formulários */
+  .container form {
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -72,10 +101,10 @@ body{
     flex-direction: column;
     padding: 0 40px;
     height: 100%;
-}
-
-.container input{
-    background-color: #eee;
+  }
+  
+  .container input {
+    background-color: var(--input-bg);
     border: none;
     margin: 8px 0;
     padding: 10px 15px;
@@ -83,57 +112,64 @@ body{
     border-radius: 8px;
     width: 100%;
     outline: none;
-}
-
-.form-container{
+    transition: border 0.3s ease;
+  }
+  
+  .container input:focus {
+    border: 1px solid var(--primary-color);
+  }
+  
+  /* Containers de Formulário */
+  .form-container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
-}
-
-.sign-in{
-  color: #FF3630;
+  }
+  
+  .sign-in {
+    color: var(--primary-color);
     left: 0;
     width: 50%;
     z-index: 2;
-}
-
-.container.active .sign-in{
+  }
+  
+  .container.active .sign-in {
     transform: translateX(100%);
-}
-
-.sign-up{
-  color: #FF3630;
+  }
+  
+  .sign-up {
+    color: var(--primary-color);
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
-}
-
-.container.active .sign-up{
+  }
+  
+  .container.active .sign-up {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
     animation: move 0.6s;
-}
-
-@keyframes move{
-    0%, 49.99%{
-        opacity: 0;
-        z-index: 1;
+  }
+  
+  @keyframes move {
+    0%, 49.99% {
+      opacity: 0;
+      z-index: 1;
     }
-    50%, 100%{
-        opacity: 1;
-        z-index: 5;
+    50%, 100% {
+      opacity: 1;
+      z-index: 5;
     }
-}
-
-.social-icons{
+  }
+  
+  /* Ícones Sociais */
+  .social-icons {
     margin: 20px 0;
-}
-
-.social-icons a{
+  }
+  
+  .social-icons a {
     border: 1px solid #ccc;
     border-radius: 20%;
     display: inline-flex;
@@ -142,9 +178,15 @@ body{
     margin: 0 3px;
     width: 40px;
     height: 40px;
-}
-
-.toggle-container{
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Toggle Container */
+  .toggle-container {
     position: absolute;
     top: 0;
     left: 50%;
@@ -154,31 +196,29 @@ body{
     transition: all 0.6s ease-in-out;
     border-radius: 150px 0 0 100px;
     z-index: 1000;
-}
-
-.container.active .toggle-container{
+  }
+  
+  .container.active .toggle-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
-}
-
-.toggle{
-    background-color: #FF3630;
+  }
+  
+  .toggle {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     height: 100%;
-    background: linear-gradient(to right, #FF3630, #FF8E4C);
-    color: #000000;
+    color: #000;
     position: relative;
     left: -100%;
-    height: 100%;
     width: 200%;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
-}
-
-.container.active .toggle{
+  }
+  
+  .container.active .toggle {
     transform: translateX(50%);
-}
-
-.toggle-panel{
+  }
+  
+  .toggle-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -191,21 +231,142 @@ body{
     top: 0;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
-}
-
-.toggle-left{
+  }
+  
+  .toggle-left {
     transform: translateX(-200%);
-}
-
-.container.active .toggle-left{
+  }
+  
+  .container.active .toggle-left {
     transform: translateX(0);
-}
-
-.toggle-right{
+  }
+  
+  .toggle-right {
     right: 0;
     transform: translateX(0);
-}
-
-.container.active .toggle-right{
+  }
+  
+  .container.active .toggle-right {
     transform: translateX(200%);
-}
+  }
+  
+  /* Classes de Validação */
+  .input-error {
+    border: 1px solid var(--error-color) !important;
+  }
+  
+  .error-message {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    display: none;
+  }
+  
+  .forgot-password {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-size: 12px !important;
+  }
+  
+  /* Acessibilidade */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container {
+      min-height: 400px;
+    }
+    
+    .form-container {
+      padding: 0 20px !important;
+    }
+    
+    .toggle-container {
+      display: none;
+    }
+    
+    .sign-in,
+    .sign-up {
+      width: 100%;
+    }
+    
+    .container.active .sign-in,
+    .container.active .sign-up {
+      transform: none;
+    }
+  }
+
+  /* ===== RESPONSIVIDADE MOBILE ===== */
+@media (max-width: 768px) {
+    .container {
+      min-height: 100vh;
+      border-radius: 0;
+      width: 100%;
+      box-shadow: none;
+    }
+  
+    .form-container {
+      width: 100% !important;
+      padding: 0 25px !important;
+    }
+  
+    /* Ajuste de altura dos formulários */
+    .sign-in, 
+    .sign-up {
+      height: auto;
+      padding: 40px 0;
+    }
+  
+    /* Remove animações problemáticas */
+    .container.active .sign-in,
+    .container.active .sign-up {
+      transform: none !important;
+      animation: none !important;
+    }
+  
+    /* Inputs maiores para touch */
+    .container input {
+      padding: 15px 20px;
+      font-size: 16px;
+    }
+  
+    /* Botões mais altos */
+    .container button {
+      padding: 15px 45px;
+      font-size: 14px;
+    }
+  
+    /* Espaçamento para evitar teclado */
+    .form-container form {
+      padding-bottom: 30vh; /* Espaço para o teclado */
+    }
+  
+    /* Header mais compacto */
+    .form-container h1 img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  }
+  
+  /* Dispositivos muito pequenos (ex: Galaxy Fold) */
+  @media (max-width: 350px) {
+    .container input {
+      font-size: 14px;
+    }
+    
+    .social-icons a {
+      width: 35px;
+      height: 35px;
+    }
+  }
