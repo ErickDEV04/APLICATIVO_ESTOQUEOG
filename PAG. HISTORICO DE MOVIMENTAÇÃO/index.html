@@ -2,120 +2,152 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Histórico de Movimentação - Gestão de Estoque</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Histórico - Gestão de Estoque</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="styleS.css" rel="stylesheet"> 
-  <script src="script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="styleS.css" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <!-- Navbar Estilo iOS -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-ios-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Gestão de Estoque</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-box-seam"></i> OGstoque
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../TELA RELATÓRIO/index.html">Relatórios</a>
+            <a class="nav-link" href="../TELA RELATÓRIO/index.html"><i class="bi bi-graph-up"></i> Relatórios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../PAG. CADASTRO DE PRODUTO/index.html">Cadastrar Produto</a>
+            <a class="nav-link" href="../PAG. CADASTRO DE PRODUTO/index.html"><i class="bi bi-plus-circle"></i> Cadastrar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../PAG. CONSULTA DE ESTOQUE/index.html">Consultar Estoque</a>
+            <a class="nav-link" href="../PAG. CONSULTA DE ESTOQUE/index.html"><i class="bi bi-search"></i> Consultar</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="bi bi-clock-history"></i> Histórico</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Histórico de Movimentação -->
-  <div class="container mt-5">
-    <h3>Histórico de Movimentação</h3>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Data</th>
-          <th scope="col">Produto</th>
-          <th scope="col">Quantidade</th>
-          <th scope="col">Ação</th>
-          <th scope="col">Usuário</th>
-        </tr>
-      </thead>
-      <tbody id="movements-table-body">
-      </tbody>
-    </table>
+  <!-- Container Principal -->
+  <div class="container-ios">
+    <div class="header-ios">
+      <h1><i class="bi bi-clock-history"></i> Histórico de Movimentações</h1>
+      <div class="header-actions">
+        <button class="btn-ios small" onclick="exportarPDF()">
+          <i class="bi bi-file-earmark-pdf"></i> PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Card de Filtros -->
+    <div class="card-ios">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <label class="form-label-ios">Tipo de Movimento</label>
+            <select id="filtro-tipo" class="form-control-ios">
+              <option value="todos">Todos</option>
+              <option value="entrada">Entrada</option>
+              <option value="saida">Saída</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-4">
+            <label class="form-label-ios">Período</label>
+            <select id="filtro-periodo" class="form-control-ios">
+              <option value="todos">Todos</option>
+              <option value="hoje">Hoje</option>
+              <option value="semana">Esta semana</option>
+              <option value="mes">Este mês</option>
+              <option value="custom">Personalizado</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-4">
+            <label class="form-label-ios">Produto</label>
+            <input type="text" id="filtro-produto" class="form-control-ios" placeholder="Filtrar por produto">
+          </div>
+        </div>
+        <div class="actions-ios mt-3">
+          <button type="button" class="btn-ios primary" onclick="filtrarMovimentacoes()" style="background-color: black;">
+            <i class="bi bi-funnel"></i> Aplicar Filtros
+          </button>
+          <button type="button" class="btn-ios outline" onclick="limparFiltros()">
+            <i class="bi bi-arrow-counterclockwise"></i> Limpar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card de Resultados -->
+    <div class="card-ios mt-3">
+      <div class="card-header-ios">
+        <h2><i class="bi bi-list-check"></i> Resultados</h2>
+        <span id="resultCount" class="badge-ios">0 itens</span>
+      </div>
+      <div class="table-responsive-ios">
+        <table class="table-ios" id="movementsTable">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Produto</th>
+              <th>Quantidade</th>
+              <th>Tipo</th>
+              <th>Usuário</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="movements-table-body">
+            <!-- Dados serão carregados via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer-ios">
+        <div class="pagination-ios">
+          <button class="btn-ios small" id="prevPage" disabled>
+            <i class="bi bi-chevron-left"></i> Anterior
+          </button>
+          <span id="pageInfo">Página 1 de 1</span>
+          <button class="btn-ios small" id="nextPage" disabled>
+            Próxima <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Incluindo Scripts do Bootstrap -->
+  <!-- Modal de Detalhes -->
+  <div id="detailModal" class="modal-ios">
+    <div class="modal-content-ios">
+      <div class="modal-header-ios">
+        <h3>Detalhes da Movimentação</h3>
+        <button type="button" class="btn-close-ios" onclick="fecharModal()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="modal-body-ios" id="modalBody">
+        <!-- Conteúdo será preenchido via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div id="loadingSpinner" class="loading-ios">
+    <div class="spinner-ios"></div>
+    <p>Carregando...</p>
+  </div>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $.ajax({
-        url: 'fetch_movements.php',
-        method: 'GET',
-        dataType: 'json',
-        success: function(data) {
-          var tableBody = $('#movements-table-body');
-          data.forEach(function(row) {
-            var tr = $('<tr></tr>');
-            tr.append('<td>' + row.data + '</td>');
-            tr.append('<td>' + row.produto + '</td>');
-            tr.append('<td>' + row.quantidade + '</td>');
-            tr.append('<td>' + row.acao + '</td>');
-            tr.append('<td>' + row.usuario + '</td>');
-            tableBody.append(tr);
-          });
-        },
-        error: function(error) {
-          console.error('Deu erro em tudo, slg no erro:', error);
-        }
-      });
-    });
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-<!-- Histórico de Movimentação 
-<div class="container mt-5">
-  <h3>Histórico de Movimentação</h3>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Data</th>
-        <th scope="col">Produto</th>
-        <th scope="col">Quantidade</th>
-        <th scope="col">Ação</th>
-        <th scope="col">Usuário</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>2025-01-05</td>
-        <td>Produto 1</td>
-        <td>10</td>
-        <td>Entrada</td>
-        <td>Administrador</td>
-      </tr>
-      <tr>
-        <td>2025-01-08</td>
-        <td>Produto 2</td>
-        <td>5</td>
-        <td>Saída</td>
-        <td>Vendedor</td>
-      </tr>
-      <!-- Mais movimentações 
-    </tbody>
-  </table>
-</div>
-
-<!-- Incluindo Scripts do Bootstrap 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
