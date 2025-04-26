@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "produto": "Notebook Dell Inspiron",
+    "quantidade": 5,
+    "tipo": "entrada",
+    "data": "2023-10-15T00:00:00",
+    "usuario": "admin",
+    "observacao": "Compra mensal de equipamentos"
+  },
+  {
+    "id": "2",
+    "produto": "Mouse Logitech MX Master",
+    "quantidade": 10,
+    "tipo": "saida",
+    "data": "2023-10-10T00:00:00",
+    "usuario": "funcionario1",
+    "observacao": "Atendimento pedido #1234"
+  },
+  {
+    "id": "3",
+    "produto": "Teclado Mecânico Keychron",
+    "quantidade": 3,
+    "tipo": "entrada",
+    "data": "2023-10-05T00:00:00",
+    "usuario": "admin",
+    "observacao": ""
+  },
+  {
+    "id": "4",
+    "produto": "Monitor LG 27'' 4K",
+    "quantidade": 2,
+    "tipo": "saida",
+    "data": "2023-09-28T00:00:00",
+    "usuario": "funcionario2",
+    "observacao": "Troca de equipamento"
+  }
+]
