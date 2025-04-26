@@ -1,127 +1,395 @@
-/* Estilos gerais */
-body {
-    font-family: Arial, sans-serif;
+/* Design System iOS-like */
+:root {
+    /* Cores */
+    --ios-blue: #007AFF;
+    --ios-gray: #F2F2F7;
+    --ios-dark: #1C1C1E;
+    --ios-light: #FFFFFF;
+    --ios-red: #FF3B30;
+    --ios-green: #34C759;
+    --ios-border: #D1D1D6;
+    --ios-card-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  
+  /* Reset & Base */
+  * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    animation: slideDown 1s ease-in-out;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
-header h1 {
-    margin: 0;
-}
-
-.container {
-    width: 80%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--ios-gray);
+    color: var(--ios-dark);
+    line-height: 1.6;
+  }
+  
+  /* Navbar iOS */
+  .navbar {
+    background-color: var(--ios-dark) !important;
+    padding: 12px 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-brand {
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+  
+  .nav-link.active {
+    color: var(--ios-blue) !important;
+  }
+  
+  /* Container Principal */
+  .container-ios {
+    max-width: 1200px;
     margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: zoomIn 1s ease-in-out;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.5);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-/* Tabela */
-table {
+    padding: 0 16px;
+  }
+  
+  .header-ios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .header-ios h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Card iOS */
+  .card-ios {
+    background: var(--ios-light);
+    border-radius: 12px;
+    box-shadow: var(--ios-card-shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .card-header-ios {
+    padding: 16px;
+    border-bottom: 1px solid var(--ios-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-header-ios h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .card-footer-ios {
+    padding: 16px;
+    border-top: 1px solid var(--ios-border);
+    display: flex;
+    justify-content: center;
+  }
+  
+  .badge-ios {
+    background-color: var(--ios-blue);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  /* Formulário iOS */
+  .form-label-ios {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--ios-dark);
+  }
+  
+  .form-control-ios {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--ios-border);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background-color: var(--ios-light);
+  }
+  
+  .form-control-ios:focus {
+    border-color: var(--ios-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.1);
+  }
+  
+  .actions-ios {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  /* Botões iOS */
+  .btn-ios {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  
+  .btn-ios.primary {
+    background-color: var(--ios-blue);
+    color: white;
+  }
+  
+  .btn-ios.primary:hover {
+    background-color: #0062CC;
+    transform: translateY(-1px);
+  }
+  
+  .btn-ios.secondary {
+    background-color: var(--ios-gray);
+    color: var(--ios-dark);
+    border: 1px solid var(--ios-border);
+  }
+  
+  .btn-ios.secondary:hover {
+    background-color: #E5E5EA;
+  }
+  
+  .btn-ios.small {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .btn-ios.outline {
+    background-color: transparent;
+    border: 1px solid var(--ios-blue);
+    color: var(--ios-blue);
+  }
+  
+  .btn-ios.outline:hover {
+    background-color: rgba(0, 122, 255, 0.1);
+  }
+  
+  /* Tabela iOS */
+  .table-responsive-ios {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table-ios {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table, th, td {
-    border: 1px solid #dddddd;
-}
-
-table thead th {
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    border-bottom: 2px solid #ddd;
-    animation: fadeIn 1s ease-in-out;
-}
-
-th, td {
-    padding: 10px;
+  }
+  
+  .table-ios th {
+    background-color: var(--ios-gray);
+    padding: 12px 16px;
     text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* Botões */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #636366;
+  }
+  
+  .table-ios td {
+    padding: 16px;
+    border-bottom: 1px solid var(--ios-border);
+    vertical-align: middle;
+  }
+  
+  .table-ios tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .table-ios tr:hover {
+    background-color: rgba(0, 122, 255, 0.03);
+  }
+  
+  .table-ios .badge {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  
+  .table-ios .badge-entrada {
+    background-color: rgba(52, 199, 89, 0.1);
+    color: var(--ios-green);
+  }
+  
+  .table-ios .badge-saida {
+    background-color: rgba(255, 59, 48, 0.1);
+    color: var(--ios-red);
+  }
+  
+  /* Paginação */
+  .pagination-ios {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .pagination-ios span {
+    font-size: 0.9rem;
+    color: #636366;
+  }
+  
+  /* Modal iOS */
+  .modal-ios {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.3s;
+  }
+  
+  .modal-content-ios {
+    background-color: white;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  
+  .modal-header-ios {
+    padding: 16px;
+    border-bottom: 1px solid var(--ios-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header-ios h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .btn-close-ios {
+    background: none;
     border: none;
+    font-size: 1.2rem;
+    color: #636366;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-button:hover {
-    background-color: #45a049;
-    transform: scale(1.1);
-}
-
-/* Cores personalizadas */
-.navbar {
-    background-color: #FF3630; /* Vermelho principal */
-    animation: slideDown 1s ease-in-out;
-}
-
-h3 {
-    color: #000000; /* Vermelho principal */
-    animation: fadeIn 3s ease-in-out;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(255, 0, 0, 0.1); /* Vermelho claro */
-    transition: background-color 0.3s ease-in-out;
-}
-
-.table-striped tbody tr:nth-of-type(even) {
-    background-color: rgba(255, 0, 0, 0.05); /* Vermelho mais claro */
-    transition: background-color 0.3s ease-in-out;
-}
-
-.table-striped tbody tr:hover {
-    background-color: rgba(255, 0, 0, 0.3); /* Vermelho mais forte */
-    transform: scale(3.02);
-    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+  }
+  
+  .modal-body-ios {
+    padding: 16px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  /* Loading iOS */
+  .loading-ios {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 16px;
+  }
+  
+  .spinner-ios {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container-ios {
+      padding: 0 12px;
+    }
+    
+    .header-ios {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .table-ios td, .table-ios th {
+      padding: 12px 8px;
+      font-size: 0.85rem;
+    }
+    
+    .actions-ios {
+      flex-direction: column;
+    }
+    
+    .btn-ios {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .modal-content-ios {
+      max-width: 100%;
+      border-radius: 0;
+    }
+    
+    .pagination-ios {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
