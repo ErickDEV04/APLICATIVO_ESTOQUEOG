@@ -1,1 +1,241 @@
+/* Importando Fonte Padrão iOS */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
+/* Variáveis de Cores iOS */
+:root {
+  --ios-blue: #007aff;
+  --ios-gray: #f2f2f7;
+  --ios-dark: #1c1c1e;
+  --ios-light: #ffffff;
+  --ios-red: #ff3b30;
+  --ios-green: #34c759;
+  --ios-border: #d1d1d6;
+  --ios-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--ios-gray);
+  color: var(--ios-dark);
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--ios-dark) !important;
+  color: var(--ios-light);
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand, .nav-link, .navbar-toggler-icon {
+  color: var(--ios-light) !important;
+  font-weight: 500;
+}
+
+.nav-link:hover, .navbar-brand:hover {
+  color: var(--ios-blue) !important;
+}
+
+/* Botões */
+.btn-ios {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-ios.primary {
+  background-color: var(--ios-blue);
+  color: white;
+}
+
+.btn-ios.primary:hover {
+  background-color: #005bb5;
+}
+
+.btn-ios.secondary {
+  background-color: var(--ios-gray);
+  color: var(--ios-dark);
+  border: 1px solid var(--ios-border);
+}
+
+.btn-ios.secondary:hover {
+  background-color: #e5e5ea;
+}
+
+.btn-ios.danger {
+  background-color: var(--ios-red);
+  color: white;
+}
+
+.btn-ios.danger:hover {
+  background-color: #cc2b1d;
+}
+
+/* Cards */
+.card-ios {
+  background: var(--ios-light);
+  border-radius: var(--radius);
+  box-shadow: var(--ios-card-shadow);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.card-header-ios, .card-footer-ios {
+  padding: 16px;
+  border-bottom: 1px solid var(--ios-border);
+}
+
+.card-footer-ios {
+  border-top: 1px solid var(--ios-border);
+  border-bottom: none;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Formulário */
+.form-control-ios {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--ios-border);
+  border-radius: var(--radius);
+  background: var(--ios-light);
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.form-control-ios:focus {
+  border-color: var(--ios-blue);
+  box-shadow: 0 0 5px rgba(0, 122, 255, 0.3);
+  outline: none;
+}
+
+/* Badges */
+.badge-ios {
+  background-color: var(--ios-blue);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Tabela */
+.table-ios {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--ios-light);
+  box-shadow: var(--ios-card-shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table-ios th, .table-ios td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--ios-border);
+}
+
+.table-ios th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+}
+
+.table-ios tr:hover {
+  background-color: #f1f1f5;
+}
+
+/* Dropdown */
+.dropdown-menu-ios {
+  background: var(--ios-light);
+  border: 1px solid var(--ios-border);
+  border-radius: var(--radius);
+  box-shadow: var(--ios-card-shadow);
+  padding: 10px 0;
+  margin-top: 5px;
+}
+
+.dropdown-item-ios {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: var(--ios-dark);
+  cursor: pointer;
+}
+
+.dropdown-item-ios:hover {
+  background: var(--ios-gray);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: var(--ios-dark);
+  color: var(--ios-light);
+}
+
+body.dark-mode .navbar {
+  background-color: #111111;
+}
+
+body.dark-mode .card-ios,
+body.dark-mode .table-ios,
+body.dark-mode .dropdown-menu-ios {
+  background-color: #2c2c2e;
+  color: var(--ios-light);
+}
+
+body.dark-mode .form-control-ios {
+  background-color: #2c2c2e;
+  color: var(--ios-light);
+  border: 1px solid #3a3a3c;
+}
+
+body.dark-mode .btn-ios.secondary {
+  background-color: #3a3a3c;
+  color: var(--ios-light);
+}
+
+/* Footer */
+.footer-ios {
+  background: var(--ios-dark);
+  color: var(--ios-light);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar-brand, .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .card-body {
+    padding: 12px;
+  }
+}
